@@ -30,7 +30,7 @@ function BookPage() {
   const [to, setTo] = useState("");
   const [dog, setDog] = useState({ name: "Bruno", breed: "Golden Retriever", age: "3", notes: "" });
 
-  const service = services.find((s) => s.slug === slug) ?? services[0];
+  const service = services.find((s) => s.slug === slug) ?? services[0]!;
   const canNext = step === 1 ? Boolean(from && to) : step === 2 ? Boolean(dog.name && dog.breed) : true;
 
   return (
@@ -133,15 +133,15 @@ function BookPage() {
           <>
             <h2 className="text-lg font-bold">Tell us about your dog</h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {[
+              {([
                 ["Dog's name", "name", "Bruno"],
                 ["Breed", "breed", "Golden Retriever"],
                 ["Age (years)", "age", "3"],
-              ].map(([label, key, ph]) => (
+              ] as const).map(([label, key, ph]) => (
                 <label key={key} className="block">
                   <span className="text-sm font-medium">{label}</span>
                   <input
-                    value={dog[key as keyof typeof dog]}
+                    value={dog[key]}
                     placeholder={ph}
                     onChange={(e) => setDog({ ...dog, [key]: e.target.value })}
                     className="mt-2 w-full rounded-2xl border border-input bg-background px-4 py-3.5 text-base"
