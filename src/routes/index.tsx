@@ -11,7 +11,7 @@ import {
   stats,
   inr,
 } from "@/lib/data";
-import { Rating, Badge, SectionHeading } from "@/components/site/ui-bits";
+import { Rating, Badge, SectionHeading, ServiceIcon } from "@/components/site/ui-bits";
 import { useState } from "react";
 
 const DESC =
@@ -123,8 +123,8 @@ function Index() {
               params={{ slug: s.slug }}
               className="group w-[68%] shrink-0 snap-start rounded-3xl bg-card p-5 shadow-soft ring-1 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lift sm:w-[38%] lg:w-auto"
             >
-              <span className="grid size-12 place-items-center rounded-2xl bg-secondary text-2xl">
-                {s.emoji}
+              <span className="grid size-12 place-items-center rounded-2xl bg-primary-soft text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                <ServiceIcon slug={s.slug} />
               </span>
               <p className="mt-4 font-bold">{s.name}</p>
               <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">{s.tagline}</p>
@@ -160,7 +160,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <Badge>🐾 Boarding</Badge>
+              <Badge><ServiceIcon slug="boarding" className="size-3.5" /> Boarding</Badge>
               <h2 className="mt-5 text-3xl font-bold leading-tight sm:text-4xl">
                 A second home when you're away.
               </h2>
@@ -231,7 +231,7 @@ function Index() {
             />
           </div>
           <div>
-            <Badge>🦮 Training</Badge>
+            <Badge><ServiceIcon slug="training" className="size-3.5" /> Training</Badge>
             <h2 className="mt-5 text-3xl font-bold leading-tight sm:text-4xl">
               Better training. Happier dogs.
             </h2>
@@ -314,7 +314,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
         <SectionHeading
           align="left"
-          eyebrow="🥩 Natural food"
+          eyebrow="Natural food"
           title="Good food. Better life."
           sub="Fresh, preservative-free meals cooked in small batches and delivered across Pune."
         />

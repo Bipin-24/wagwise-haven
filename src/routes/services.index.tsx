@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { services, inr } from "@/lib/data";
-import { Rating, SectionHeading } from "@/components/site/ui-bits";
+import { Rating, SectionHeading, ServiceIcon } from "@/components/site/ui-bits";
 
 const DESC =
   "Boarding, training, online vet care, fresh food, grooming and dog walking for Pune's dogs — all from one trusted team.";
@@ -42,8 +42,8 @@ function ServicesPage() {
                 loading="lazy"
                 className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <span className="absolute left-4 top-4 rounded-full bg-background/90 px-3 py-1 text-xs font-semibold backdrop-blur">
-                {s.emoji} {s.name}
+              <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1.5 text-xs font-semibold backdrop-blur">
+                <ServiceIcon slug={s.slug} className="size-3.5 text-primary" /> {s.name}
               </span>
             </div>
             <div className="p-6">

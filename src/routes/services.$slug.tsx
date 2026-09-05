@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { Check, MapPin, ShieldCheck } from "lucide-react";
 import { services, inr, testimonials } from "@/lib/data";
-import { Rating, Badge } from "@/components/site/ui-bits";
+import { Rating, Badge, ServiceIcon } from "@/components/site/ui-bits";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -45,7 +45,7 @@ function ServiceDetail() {
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-6 text-background sm:p-10">
             <Badge tone="cream" className="bg-background/90">
-              {service.emoji} {service.name}
+              <ServiceIcon slug={service.slug} className="size-3.5 text-primary" /> {service.name}
             </Badge>
             <h1 className="mt-4 max-w-2xl text-3xl font-bold sm:text-5xl">{service.tagline}</h1>
             <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">

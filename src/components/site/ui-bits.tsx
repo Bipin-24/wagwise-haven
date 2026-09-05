@@ -1,4 +1,4 @@
-import { Star } from "lucide-react";
+import { Star, House, GraduationCap, HeartPulse, Beef, Bath, Footprints, PawPrint } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
 
@@ -80,4 +80,18 @@ export function SectionHeading({
       {sub && <p className="mt-4 text-base leading-relaxed text-muted-foreground">{sub}</p>}
     </div>
   );
+}
+
+const serviceIcons: Record<string, typeof PawPrint> = {
+  boarding: House,
+  training: GraduationCap,
+  vet: HeartPulse,
+  food: Beef,
+  grooming: Bath,
+  walking: Footprints,
+};
+
+export function ServiceIcon({ slug, className }: { slug: string; className?: string }) {
+  const Icon = serviceIcons[slug] ?? PawPrint;
+  return <Icon className={cn("size-5", className)} aria-hidden />;
 }
