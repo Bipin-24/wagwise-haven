@@ -1,4 +1,3 @@
-import heroMain from "@/assets/gen/hero-main.jpg";
 import boardingImg from "@/assets/gen/boarding.jpg";
 import trainingImg from "@/assets/gen/training.jpg";
 import vetImg from "@/assets/gen/vet.jpg";
@@ -9,13 +8,12 @@ import communityImg from "@/assets/gen/community.jpg";
 import productPack from "@/assets/gen/product-pack.jpg";
 import productTreats from "@/assets/gen/product-treats.jpg";
 import productFresh from "@/assets/gen/product-fresh.jpg";
-import logoAsset from "@/assets/logo.png.asset.json";
-import heroPlayAsset from "@/assets/hero-play.jpg.asset.json";
-import heroBallAsset from "@/assets/hero-ball.jpg.asset.json";
-import heroRunAsset from "@/assets/hero-run.jpg.asset.json";
+import heroPlayImg from "@/assets/gen/hero-play.jpg";
+import heroBallImg from "@/assets/gen/hero-ball.jpg";
+import heroRunImg from "@/assets/gen/hero-run.jpg";
 
 export const img = {
-  hero: heroMain,
+  hero: heroPlayImg,
   boarding: boardingImg,
   training: trainingImg,
   vet: vetImg,
@@ -26,10 +24,10 @@ export const img = {
   productPack,
   productTreats,
   productFresh,
-  logo: logoAsset.url,
-  play: heroPlayAsset.url,
-  ball: heroBallAsset.url,
-  run: heroRunAsset.url,
+  logo: "/favicon.png",
+  play: heroPlayImg,
+  ball: heroBallImg,
+  run: heroRunImg,
 };
 
 export type Service = {
@@ -56,7 +54,7 @@ export const services: Service[] = [
     tagline: "Safe, loving stays while you're away.",
     description:
       "Your dog stays in a real home in Pune — no cages, no kennels. Garden play through the day, a soft bed at night, and photo updates every evening so you never wonder how they're doing.",
-    image: boardingImg,
+    image: heroBallImg,
     price: 899,
     priceUnit: "night",
     rating: 4.9,
@@ -98,7 +96,7 @@ export const services: Service[] = [
     tagline: "Build better habits. Build a stronger bond.",
     description:
       "Positive-reinforcement training shaped around your dog's breed, age and personality. We train you as much as we train them, so the results last long after the sessions end.",
-    image: trainingImg,
+    image: heroRunImg,
     price: 1200,
     priceUnit: "session",
     rating: 4.8,
@@ -214,7 +212,7 @@ export const services: Service[] = [
     tagline: "Daily walks, sent to your phone.",
     description:
       "Reliable, insured walkers who show up on time, follow your route preferences and share a GPS-tracked summary with photos after every walk.",
-    image: walkingImg,
+    image: heroRunImg,
     price: 299,
     priceUnit: "walk",
     rating: 4.9,
@@ -263,15 +261,15 @@ export const testimonials = [
     dog: "Bruno · Golden Retriever",
     rating: 5,
     text: "Leaving Bruno here while travelling was the best decision. He came back happy, healthy and clearly had a wonderful time.",
-    avatar: heroBallAsset.url,
-    dogPhoto: heroPlayAsset.url,
+    avatar: heroBallImg,
+    dogPhoto: heroPlayImg,
   },
   {
     name: "Rohan Mehta",
     dog: "Simba · Indie",
     rating: 5,
     text: "Six weeks of training and our reactive rescue now walks past other dogs calmly. They coached us more than they coached him.",
-    avatar: heroRunAsset.url,
+    avatar: heroRunImg,
     dogPhoto: walkingImg,
     },
   {
@@ -279,7 +277,7 @@ export const testimonials = [
     dog: "Coco · Shih Tzu",
     rating: 5,
     text: "The online vet caught a skin infection on a Sunday night. Prescription in ten minutes, and Coco was fine by Wednesday.",
-    avatar: heroPlayAsset.url,
+    avatar: heroPlayImg,
     dogPhoto: groomingImg,
   },
 ];
@@ -300,7 +298,7 @@ export const dogProfile = {
   vaccination: "Up to date · Next due 12 Mar 2027",
   allergies: "Chicken liver",
   notes: "Loves tennis balls. Nervous around fireworks — needs a quiet room in the evening.",
-  photo: heroPlayAsset.url,
+  photo: heroPlayImg,
 };
 
 export const bookings = [

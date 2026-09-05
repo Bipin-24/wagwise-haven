@@ -58,14 +58,16 @@ function Index() {
               Trusted by happy dogs &amp; their humans in Pune
             </Badge>
             <h1 className="mt-6 text-pretty text-4xl font-extrabold leading-[1.05] sm:text-6xl">
-              Because They're{" "}
-              <span className="relative inline-block text-primary">
-                Family.
+              Where every dog is treated like{" "}
+              <span className="relative inline-block text-accent">
+                family.
                 <span className="absolute inset-x-0 -bottom-1 h-2 rounded-full bg-accent-soft" />
               </span>
             </h1>
             <p className="mt-6 max-w-[46ch] text-lg leading-relaxed text-muted-foreground">
-              Trusted care, training, wellness and everything your dog needs — all in one place.
+              Paw Brothers began with our own two boys — Bruno a German Shepherd and a Goofy Golden
+              Retriever. Now we open our home and garden to yours: boarding, training, vet guidance
+              and natural food, all under one woof.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Link
@@ -107,6 +109,51 @@ function Index() {
                 <p className="text-sm font-semibold">Bruno is boarding tonight</p>
                 <p className="text-xs text-muted-foreground">Photo update sent · 7:42 pm</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ORIGIN STORY */}
+      <section className="bg-secondary/40 py-16 lg:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-accent">
+              The heart of Paw Brothers
+            </p>
+            <h2 className="mt-5 text-pretty text-4xl font-extrabold leading-[1.08] sm:text-5xl lg:text-6xl">
+              It started with a promise to two loyal friends.
+            </h2>
+            <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground sm:text-lg">
+              <p>
+                I'm a dog lover first and a business owner second. When I travelled, I could never
+                find a place in Pune that felt like home for Bruno, my German Shepherd, and Goofy,
+                my Golden Retriever — so I built one.
+              </p>
+              <p>
+                Every guest here plays on the same lawn, eats the same natural food, and gets the
+                same love as the original Paw Brothers themselves. That's the whole idea — family,
+                not a facility.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 sm:items-center">
+            <div className="overflow-hidden rounded-[2rem] bg-card pb-8 shadow-lift ring-1 ring-border">
+              <img
+                src={img.ball}
+                alt="Bruno and Goofy playing together on the Paw Brothers lawn"
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover object-center"
+              />
+            </div>
+            <div className="overflow-hidden rounded-[2rem] shadow-lift ring-1 ring-border sm:translate-y-8">
+              <img
+                src={img.run}
+                alt="Bruno and Goofy running across the garden lawn"
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover object-center"
+              />
             </div>
           </div>
         </div>
