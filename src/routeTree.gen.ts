@@ -14,11 +14,17 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as BoardingRouteImport } from './routes/boarding'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingsRouteImport } from './routes/bookings'
+import { Route as BrunoRouteImport } from './routes/bruno'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DaycareRouteImport } from './routes/daycare'
+import { Route as DogsRouteImport } from './routes/dogs'
+import { Route as FacilityRouteImport } from './routes/facility'
 import { Route as FoodRouteImport } from './routes/food'
+import { Route as GoofyRouteImport } from './routes/goofy'
 import { Route as GroomingRouteImport } from './routes/grooming'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as TrainingRouteImport } from './routes/training'
+import { Route as UpdatesRouteImport } from './routes/updates'
 import { Route as VeterinaryRouteImport } from './routes/veterinary'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 
@@ -47,14 +53,39 @@ const BookingsRoute = BookingsRouteImport.update({
   path: '/bookings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrunoRoute = BrunoRouteImport.update({
+  id: '/bruno',
+  path: '/bruno',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DaycareRoute = DaycareRouteImport.update({
   id: '/daycare',
   path: '/daycare',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DogsRoute = DogsRouteImport.update({
+  id: '/dogs',
+  path: '/dogs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacilityRoute = FacilityRouteImport.update({
+  id: '/facility',
+  path: '/facility',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FoodRoute = FoodRouteImport.update({
   id: '/food',
   path: '/food',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoofyRoute = GoofyRouteImport.update({
+  id: '/goofy',
+  path: '/goofy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GroomingRoute = GroomingRouteImport.update({
@@ -70,6 +101,11 @@ const ProfileRoute = ProfileRouteImport.update({
 const TrainingRoute = TrainingRouteImport.update({
   id: '/training',
   path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpdatesRoute = UpdatesRouteImport.update({
+  id: '/updates',
+  path: '/updates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VeterinaryRoute = VeterinaryRouteImport.update({
@@ -89,11 +125,17 @@ export interface FileRoutesByFullPath {
   '/boarding': typeof BoardingRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
+  '/bruno': typeof BrunoRoute
+  '/contact': typeof ContactRoute
   '/daycare': typeof DaycareRoute
+  '/dogs': typeof DogsRoute
+  '/facility': typeof FacilityRoute
   '/food': typeof FoodRoute
+  '/goofy': typeof GoofyRoute
   '/grooming': typeof GroomingRoute
   '/profile': typeof ProfileRoute
   '/training': typeof TrainingRoute
+  '/updates': typeof UpdatesRoute
   '/veterinary': typeof VeterinaryRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -103,11 +145,17 @@ export interface FileRoutesByTo {
   '/boarding': typeof BoardingRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
+  '/bruno': typeof BrunoRoute
+  '/contact': typeof ContactRoute
   '/daycare': typeof DaycareRoute
+  '/dogs': typeof DogsRoute
+  '/facility': typeof FacilityRoute
   '/food': typeof FoodRoute
+  '/goofy': typeof GoofyRoute
   '/grooming': typeof GroomingRoute
   '/profile': typeof ProfileRoute
   '/training': typeof TrainingRoute
+  '/updates': typeof UpdatesRoute
   '/veterinary': typeof VeterinaryRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -118,11 +166,17 @@ export interface FileRoutesById {
   '/boarding': typeof BoardingRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
+  '/bruno': typeof BrunoRoute
+  '/contact': typeof ContactRoute
   '/daycare': typeof DaycareRoute
+  '/dogs': typeof DogsRoute
+  '/facility': typeof FacilityRoute
   '/food': typeof FoodRoute
+  '/goofy': typeof GoofyRoute
   '/grooming': typeof GroomingRoute
   '/profile': typeof ProfileRoute
   '/training': typeof TrainingRoute
+  '/updates': typeof UpdatesRoute
   '/veterinary': typeof VeterinaryRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -134,11 +188,17 @@ export interface FileRouteTypes {
     | '/boarding'
     | '/book'
     | '/bookings'
+    | '/bruno'
+    | '/contact'
     | '/daycare'
+    | '/dogs'
+    | '/facility'
     | '/food'
+    | '/goofy'
     | '/grooming'
     | '/profile'
     | '/training'
+    | '/updates'
     | '/veterinary'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -148,11 +208,17 @@ export interface FileRouteTypes {
     | '/boarding'
     | '/book'
     | '/bookings'
+    | '/bruno'
+    | '/contact'
     | '/daycare'
+    | '/dogs'
+    | '/facility'
     | '/food'
+    | '/goofy'
     | '/grooming'
     | '/profile'
     | '/training'
+    | '/updates'
     | '/veterinary'
     | '/services'
   id:
@@ -162,11 +228,17 @@ export interface FileRouteTypes {
     | '/boarding'
     | '/book'
     | '/bookings'
+    | '/bruno'
+    | '/contact'
     | '/daycare'
+    | '/dogs'
+    | '/facility'
     | '/food'
+    | '/goofy'
     | '/grooming'
     | '/profile'
     | '/training'
+    | '/updates'
     | '/veterinary'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -177,11 +249,17 @@ export interface RootRouteChildren {
   BoardingRoute: typeof BoardingRoute
   BookRoute: typeof BookRoute
   BookingsRoute: typeof BookingsRoute
+  BrunoRoute: typeof BrunoRoute
+  ContactRoute: typeof ContactRoute
   DaycareRoute: typeof DaycareRoute
+  DogsRoute: typeof DogsRoute
+  FacilityRoute: typeof FacilityRoute
   FoodRoute: typeof FoodRoute
+  GoofyRoute: typeof GoofyRoute
   GroomingRoute: typeof GroomingRoute
   ProfileRoute: typeof ProfileRoute
   TrainingRoute: typeof TrainingRoute
+  UpdatesRoute: typeof UpdatesRoute
   VeterinaryRoute: typeof VeterinaryRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
@@ -223,6 +301,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bruno': {
+      id: '/bruno'
+      path: '/bruno'
+      fullPath: '/bruno'
+      preLoaderRoute: typeof BrunoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/daycare': {
       id: '/daycare'
       path: '/daycare'
@@ -230,11 +322,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DaycareRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dogs': {
+      id: '/dogs'
+      path: '/dogs'
+      fullPath: '/dogs'
+      preLoaderRoute: typeof DogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facility': {
+      id: '/facility'
+      path: '/facility'
+      fullPath: '/facility'
+      preLoaderRoute: typeof FacilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/food': {
       id: '/food'
       path: '/food'
       fullPath: '/food'
       preLoaderRoute: typeof FoodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/goofy': {
+      id: '/goofy'
+      path: '/goofy'
+      fullPath: '/goofy'
+      preLoaderRoute: typeof GoofyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/grooming': {
@@ -256,6 +369,13 @@ declare module '@tanstack/react-router' {
       path: '/training'
       fullPath: '/training'
       preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/updates': {
+      id: '/updates'
+      path: '/updates'
+      fullPath: '/updates'
+      preLoaderRoute: typeof UpdatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/veterinary': {
@@ -281,11 +401,17 @@ const rootRouteChildren: RootRouteChildren = {
   BoardingRoute: BoardingRoute,
   BookRoute: BookRoute,
   BookingsRoute: BookingsRoute,
+  BrunoRoute: BrunoRoute,
+  ContactRoute: ContactRoute,
   DaycareRoute: DaycareRoute,
+  DogsRoute: DogsRoute,
+  FacilityRoute: FacilityRoute,
   FoodRoute: FoodRoute,
+  GoofyRoute: GoofyRoute,
   GroomingRoute: GroomingRoute,
   ProfileRoute: ProfileRoute,
   TrainingRoute: TrainingRoute,
+  UpdatesRoute: UpdatesRoute,
   VeterinaryRoute: VeterinaryRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
