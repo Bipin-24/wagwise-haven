@@ -16,6 +16,7 @@ import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingsRouteImport } from './routes/bookings'
 import { Route as BrunoRouteImport } from './routes/bruno'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DaycareRouteImport } from './routes/daycare'
 import { Route as DogsRouteImport } from './routes/dogs'
 import { Route as FacilityRouteImport } from './routes/facility'
@@ -61,6 +62,11 @@ const BrunoRoute = BrunoRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DaycareRoute = DaycareRouteImport.update({
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/bookings': typeof BookingsRoute
   '/bruno': typeof BrunoRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
   '/daycare': typeof DaycareRoute
   '/dogs': typeof DogsRoute
   '/facility': typeof FacilityRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/bookings': typeof BookingsRoute
   '/bruno': typeof BrunoRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
   '/daycare': typeof DaycareRoute
   '/dogs': typeof DogsRoute
   '/facility': typeof FacilityRoute
@@ -168,6 +176,7 @@ export interface FileRoutesById {
   '/bookings': typeof BookingsRoute
   '/bruno': typeof BrunoRoute
   '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
   '/daycare': typeof DaycareRoute
   '/dogs': typeof DogsRoute
   '/facility': typeof FacilityRoute
@@ -190,6 +199,7 @@ export interface FileRouteTypes {
     | '/bookings'
     | '/bruno'
     | '/contact'
+    | '/dashboard'
     | '/daycare'
     | '/dogs'
     | '/facility'
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/bookings'
     | '/bruno'
     | '/contact'
+    | '/dashboard'
     | '/daycare'
     | '/dogs'
     | '/facility'
@@ -230,6 +241,7 @@ export interface FileRouteTypes {
     | '/bookings'
     | '/bruno'
     | '/contact'
+    | '/dashboard'
     | '/daycare'
     | '/dogs'
     | '/facility'
@@ -251,6 +263,7 @@ export interface RootRouteChildren {
   BookingsRoute: typeof BookingsRoute
   BrunoRoute: typeof BrunoRoute
   ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRoute
   DaycareRoute: typeof DaycareRoute
   DogsRoute: typeof DogsRoute
   FacilityRoute: typeof FacilityRoute
@@ -313,6 +326,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/daycare': {
@@ -403,6 +423,7 @@ const rootRouteChildren: RootRouteChildren = {
   BookingsRoute: BookingsRoute,
   BrunoRoute: BrunoRoute,
   ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRoute,
   DaycareRoute: DaycareRoute,
   DogsRoute: DogsRoute,
   FacilityRoute: FacilityRoute,
