@@ -11,12 +11,23 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as BoardingRouteImport } from './routes/boarding'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingsRouteImport } from './routes/bookings'
-import { Route as CommunityRouteImport } from './routes/community'
+import { Route as BrunoRouteImport } from './routes/bruno'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DaycareRouteImport } from './routes/daycare'
+import { Route as DogsRouteImport } from './routes/dogs'
+import { Route as FacilityRouteImport } from './routes/facility'
+import { Route as FoodRouteImport } from './routes/food'
+import { Route as GoofyRouteImport } from './routes/goofy'
+import { Route as GroomingRouteImport } from './routes/grooming'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as UpdatesRouteImport } from './routes/updates'
+import { Route as VeterinaryRouteImport } from './routes/veterinary'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
-import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -26,6 +37,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoardingRoute = BoardingRouteImport.update({
+  id: '/boarding',
+  path: '/boarding',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BookRoute = BookRouteImport.update({
@@ -38,9 +54,49 @@ const BookingsRoute = BookingsRouteImport.update({
   path: '/bookings',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CommunityRoute = CommunityRouteImport.update({
-  id: '/community',
-  path: '/community',
+const BrunoRoute = BrunoRouteImport.update({
+  id: '/bruno',
+  path: '/bruno',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DaycareRoute = DaycareRouteImport.update({
+  id: '/daycare',
+  path: '/daycare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DogsRoute = DogsRouteImport.update({
+  id: '/dogs',
+  path: '/dogs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacilityRoute = FacilityRouteImport.update({
+  id: '/facility',
+  path: '/facility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FoodRoute = FoodRouteImport.update({
+  id: '/food',
+  path: '/food',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoofyRoute = GoofyRouteImport.update({
+  id: '/goofy',
+  path: '/goofy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroomingRoute = GroomingRouteImport.update({
+  id: '/grooming',
+  path: '/grooming',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfileRoute = ProfileRouteImport.update({
@@ -48,46 +104,89 @@ const ProfileRoute = ProfileRouteImport.update({
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpdatesRoute = UpdatesRouteImport.update({
+  id: '/updates',
+  path: '/updates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VeterinaryRoute = VeterinaryRouteImport.update({
+  id: '/veterinary',
+  path: '/veterinary',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/services/',
   path: '/services/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesSlugRoute = ServicesSlugRouteImport.update({
-  id: '/services/$slug',
-  path: '/services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/boarding': typeof BoardingRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
-  '/community': typeof CommunityRoute
+  '/bruno': typeof BrunoRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/daycare': typeof DaycareRoute
+  '/dogs': typeof DogsRoute
+  '/facility': typeof FacilityRoute
+  '/food': typeof FoodRoute
+  '/goofy': typeof GoofyRoute
+  '/grooming': typeof GroomingRoute
   '/profile': typeof ProfileRoute
-  '/services/$slug': typeof ServicesSlugRoute
+  '/training': typeof TrainingRoute
+  '/updates': typeof UpdatesRoute
+  '/veterinary': typeof VeterinaryRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/boarding': typeof BoardingRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
-  '/community': typeof CommunityRoute
+  '/bruno': typeof BrunoRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/daycare': typeof DaycareRoute
+  '/dogs': typeof DogsRoute
+  '/facility': typeof FacilityRoute
+  '/food': typeof FoodRoute
+  '/goofy': typeof GoofyRoute
+  '/grooming': typeof GroomingRoute
   '/profile': typeof ProfileRoute
-  '/services/$slug': typeof ServicesSlugRoute
+  '/training': typeof TrainingRoute
+  '/updates': typeof UpdatesRoute
+  '/veterinary': typeof VeterinaryRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/boarding': typeof BoardingRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
-  '/community': typeof CommunityRoute
+  '/bruno': typeof BrunoRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/daycare': typeof DaycareRoute
+  '/dogs': typeof DogsRoute
+  '/facility': typeof FacilityRoute
+  '/food': typeof FoodRoute
+  '/goofy': typeof GoofyRoute
+  '/grooming': typeof GroomingRoute
   '/profile': typeof ProfileRoute
-  '/services/$slug': typeof ServicesSlugRoute
+  '/training': typeof TrainingRoute
+  '/updates': typeof UpdatesRoute
+  '/veterinary': typeof VeterinaryRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -95,42 +194,86 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/boarding'
     | '/book'
     | '/bookings'
-    | '/community'
+    | '/bruno'
+    | '/contact'
+    | '/dashboard'
+    | '/daycare'
+    | '/dogs'
+    | '/facility'
+    | '/food'
+    | '/goofy'
+    | '/grooming'
     | '/profile'
-    | '/services/$slug'
+    | '/training'
+    | '/updates'
+    | '/veterinary'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/boarding'
     | '/book'
     | '/bookings'
-    | '/community'
+    | '/bruno'
+    | '/contact'
+    | '/dashboard'
+    | '/daycare'
+    | '/dogs'
+    | '/facility'
+    | '/food'
+    | '/goofy'
+    | '/grooming'
     | '/profile'
-    | '/services/$slug'
+    | '/training'
+    | '/updates'
+    | '/veterinary'
     | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/boarding'
     | '/book'
     | '/bookings'
-    | '/community'
+    | '/bruno'
+    | '/contact'
+    | '/dashboard'
+    | '/daycare'
+    | '/dogs'
+    | '/facility'
+    | '/food'
+    | '/goofy'
+    | '/grooming'
     | '/profile'
-    | '/services/$slug'
+    | '/training'
+    | '/updates'
+    | '/veterinary'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BoardingRoute: typeof BoardingRoute
   BookRoute: typeof BookRoute
   BookingsRoute: typeof BookingsRoute
-  CommunityRoute: typeof CommunityRoute
+  BrunoRoute: typeof BrunoRoute
+  ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRoute
+  DaycareRoute: typeof DaycareRoute
+  DogsRoute: typeof DogsRoute
+  FacilityRoute: typeof FacilityRoute
+  FoodRoute: typeof FoodRoute
+  GoofyRoute: typeof GoofyRoute
+  GroomingRoute: typeof GroomingRoute
   ProfileRoute: typeof ProfileRoute
-  ServicesSlugRoute: typeof ServicesSlugRoute
+  TrainingRoute: typeof TrainingRoute
+  UpdatesRoute: typeof UpdatesRoute
+  VeterinaryRoute: typeof VeterinaryRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
@@ -150,6 +293,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/boarding': {
+      id: '/boarding'
+      path: '/boarding'
+      fullPath: '/boarding'
+      preLoaderRoute: typeof BoardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/book': {
       id: '/book'
       path: '/book'
@@ -164,11 +314,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/community': {
-      id: '/community'
-      path: '/community'
-      fullPath: '/community'
-      preLoaderRoute: typeof CommunityRouteImport
+    '/bruno': {
+      id: '/bruno'
+      path: '/bruno'
+      fullPath: '/bruno'
+      preLoaderRoute: typeof BrunoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/daycare': {
+      id: '/daycare'
+      path: '/daycare'
+      fullPath: '/daycare'
+      preLoaderRoute: typeof DaycareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dogs': {
+      id: '/dogs'
+      path: '/dogs'
+      fullPath: '/dogs'
+      preLoaderRoute: typeof DogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/facility': {
+      id: '/facility'
+      path: '/facility'
+      fullPath: '/facility'
+      preLoaderRoute: typeof FacilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/food': {
+      id: '/food'
+      path: '/food'
+      fullPath: '/food'
+      preLoaderRoute: typeof FoodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/goofy': {
+      id: '/goofy'
+      path: '/goofy'
+      fullPath: '/goofy'
+      preLoaderRoute: typeof GoofyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grooming': {
+      id: '/grooming'
+      path: '/grooming'
+      fullPath: '/grooming'
+      preLoaderRoute: typeof GroomingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile': {
@@ -178,18 +384,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/updates': {
+      id: '/updates'
+      path: '/updates'
+      fullPath: '/updates'
+      preLoaderRoute: typeof UpdatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/veterinary': {
+      id: '/veterinary'
+      path: '/veterinary'
+      fullPath: '/veterinary'
+      preLoaderRoute: typeof VeterinaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/': {
       id: '/services/'
       path: '/services'
       fullPath: '/services/'
       preLoaderRoute: typeof ServicesIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/$slug': {
-      id: '/services/$slug'
-      path: '/services/$slug'
-      fullPath: '/services/$slug'
-      preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -198,11 +418,22 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BoardingRoute: BoardingRoute,
   BookRoute: BookRoute,
   BookingsRoute: BookingsRoute,
-  CommunityRoute: CommunityRoute,
+  BrunoRoute: BrunoRoute,
+  ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRoute,
+  DaycareRoute: DaycareRoute,
+  DogsRoute: DogsRoute,
+  FacilityRoute: FacilityRoute,
+  FoodRoute: FoodRoute,
+  GoofyRoute: GoofyRoute,
+  GroomingRoute: GroomingRoute,
   ProfileRoute: ProfileRoute,
-  ServicesSlugRoute: ServicesSlugRoute,
+  TrainingRoute: TrainingRoute,
+  UpdatesRoute: UpdatesRoute,
+  VeterinaryRoute: VeterinaryRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport

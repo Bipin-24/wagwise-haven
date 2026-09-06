@@ -1,6 +1,25 @@
 import { Link } from "@tanstack/react-router";
-import { MapPin, Mail, Instagram, Phone } from "lucide-react";
-import { img, services } from "@/lib/data";
+import { MapPin, Instagram } from "lucide-react";
+import { img } from "@/data/images";
+import { brand } from "@/data/mock";
+
+const serviceLinks = [
+  { to: "/services", label: "Services" },
+  { to: "/boarding", label: "Boarding" },
+  { to: "/daycare", label: "Daycare" },
+  { to: "/training", label: "Training" },
+  { to: "/veterinary", label: "Veterinary" },
+  { to: "/grooming", label: "Grooming" },
+  { to: "/food", label: "Food" },
+] as const;
+
+const companyLinks = [
+  { to: "/about", label: "About" },
+  { to: "/bruno", label: "Bruno" },
+  { to: "/goofy", label: "Goofy" },
+  { to: "/facility", label: "Facility" },
+  { to: "/contact", label: "Contact" },
+] as const;
 
 export function Footer() {
   return (
@@ -11,34 +30,25 @@ export function Footer() {
             <img src={img.logo} alt="Paw Brothers" className="size-12 rounded-2xl object-cover" />
             <span className="font-display text-xl font-extrabold">Paw Brothers</span>
           </div>
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
-            More than pet care. We're family. Boarding, training, vet care, grooming, walking and
-            fresh food for dogs across Pune.
+          <p className="mt-5 font-display text-lg font-semibold">{brand.tagline}</p>
+          <p className="mt-2 max-w-sm text-sm leading-relaxed text-primary-foreground/70">
+            {brand.message}
           </p>
-          <div className="mt-6 space-y-2 text-sm text-primary-foreground/70">
-            <p className="flex items-center gap-2">
-              <MapPin className="size-4" /> Kothrud, Pune, Maharashtra
-            </p>
-            <p className="flex items-center gap-2">
-              <Mail className="size-4" /> hello@pawbrothers.in
-            </p>
-            <p className="flex items-center gap-2">
-              <Phone className="size-4" /> Call or WhatsApp us
-            </p>
-          </div>
+          <p className="mt-6 flex items-center gap-2 text-sm text-primary-foreground/70">
+            <MapPin className="size-4" /> {brand.city}
+          </p>
+          <p className="mt-2 flex items-center gap-2 text-sm text-primary-foreground/70">
+            <Instagram className="size-4" /> Social links coming soon
+          </p>
         </div>
 
         <div>
           <h3 className="text-sm font-bold uppercase tracking-wider">Services</h3>
           <ul className="mt-5 space-y-3 text-sm text-primary-foreground/70">
-            {services.map((s) => (
-              <li key={s.slug}>
-                <Link
-                  to="/services/$slug"
-                  params={{ slug: s.slug }}
-                  className="transition-colors hover:text-primary-foreground"
-                >
-                  {s.name}
+            {serviceLinks.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="transition-colors hover:text-primary-foreground">
+                  {l.label}
                 </Link>
               </li>
             ))}
@@ -46,39 +56,22 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-wider">Company</h3>
+          <h3 className="text-sm font-bold uppercase tracking-wider">Paw Brothers</h3>
           <ul className="mt-5 space-y-3 text-sm text-primary-foreground/70">
-            <li>
-              <Link to="/about" className="transition-colors hover:text-primary-foreground">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link to="/community" className="transition-colors hover:text-primary-foreground">
-                Community
-              </Link>
-            </li>
-            <li>
-              <Link to="/bookings" className="transition-colors hover:text-primary-foreground">
-                My Bookings
-              </Link>
-            </li>
-            <li>
-              <Link to="/book" className="transition-colors hover:text-primary-foreground">
-                Book a Service
-              </Link>
-            </li>
+            {companyLinks.map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} className="transition-colors hover:text-primary-foreground">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
           </ul>
-          <a
-            href="#"
-            className="mt-6 inline-flex items-center gap-2 text-sm text-primary-foreground/70 transition-colors hover:text-primary-foreground"
-          >
-            <Instagram className="size-4" /> @pawbrothers.pune
-          </a>
         </div>
       </div>
-      <div className="border-t border-primary-foreground/15 px-4 py-6 text-center text-xs text-primary-foreground/50">
-        © {new Date().getFullYear()} Paw Brothers · Made with love in Pune. Demo content and prices.
+      <div className="border-t border-primary-foreground/15">
+        <div className="mx-auto max-w-7xl px-4 py-6 text-xs text-primary-foreground/60 sm:px-6">
+          © 2026 Paw Brothers · Pune, Maharashtra
+        </div>
       </div>
     </footer>
   );

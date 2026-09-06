@@ -1,53 +1,74 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { bookings, inr } from "@/lib/data";
-import { Badge } from "@/components/site/ui-bits";
+import { createFileRoute } from "@tanstack/react-router";
+import { bookings, dogs, inr } from "@/data/mock";
+import { Card, EmptyState, PageHero, Section, StatusBadge } from "@/components/ui-kit";
+import type { BookingStatus } from "@/types";
+
+const title = "Bookings — Paw Brothers";
+const description = "Upcoming, pending, completed and cancelled bookings for your dogs at Paw Brothers.";
 
 export const Route = createFileRoute("/bookings")({
-  component: BookingsPage,
   head: () => ({
     meta: [
-      { title: "My Bookings — Paw Brothers" },
-      { name: "description", content: "Track your dog's boarding, grooming and vet appointments with Paw Brothers." },
-      { property: "og:title", content: "My Bookings — Paw Brothers" },
-      { property: "og:description", content: "Track your dog's upcoming and past Paw Brothers services." },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:url", content: "https://wagwise-haven.lovable.app/bookings" },
     ],
+    links: [{ rel: "canonical", href: "https://wagwise-haven.lovable.app/bookings" }],
   }),
+  component: BookingsPage,
 });
+
+const groups: { key: BookingStatus; label: string }[] = [
+  { key: "confirmed", label: "Upcoming" },
+  { key: "pending", label: "Pending" },
+  { key: "completed", label: "Completed" },
+  { key: "cancelled", label: "Cancelled" },
+];
 
 function BookingsPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:py-16">
-      <h1 className="text-2xl font-bold sm:text-3xl">My bookings</h1>
-      <p className="mt-2 text-muted-foreground">Demo data — nothing here is a real reservation.</p>
-
-      <div className="mt-8 space-y-4">
-        {bookings.map((b) => (
-          <div
-            key={b.service + b.dates}
-            className="flex items-center gap-4 rounded-3xl bg-card p-4 shadow-soft ring-1 ring-border"
-          >
-            <img src={b.image} alt="" loading="lazy" className="size-20 rounded-2xl object-cover" />
-            <div className="min-w-0 flex-1">
-              <p className="truncate font-semibold">{b.service}</p>
-              <p className="text-sm text-muted-foreground">{b.dates}</p>
-              <Badge
-                tone={b.status === "Confirmed" ? "sage" : b.status === "Upcoming" ? "accent" : "cream"}
-                className="mt-2"
-              >
-                {b.status}
-              </Badge>
-            </div>
-            <p className="font-semibold">{inr(b.price)}</p>
-          </div>
-        ))}
-      </div>
-
-      <Link
-        to="/book"
-        className="mt-8 block rounded-2xl bg-primary py-4 text-center font-semibold text-primary-foreground"
-      >
-        Book another service
-      </Link>
-    </div>
+    <>
+      <PageHero eyebrow="Bookings" title="Your bookings" sub="Demo bookings — nothing here is a live reservation yet." />
+      <Section>
+        <div className="space-y-12">
+          {groups.map((g) => {
+            const list = bookings.filter((b) => b.status === g.key);
+            return (
+              <div key={g.key}>
+                <h2 className="font-display text-2xl font-bold">{g.label}</h2>
+                <div className="mt-5 grid gap-4">
+                  {list.length === 0 ? (
+                    <EmptyState title={`No ${g.label.toLowerCase()} bookings`} body="When you book a service it will show up here." />
+                  ) : (
+                    list.map((b) => {
+                      const dog = dogs.find((d) => d.id === b.dogId);
+                      return (
+                        <Card key={b.id} className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 p-5 sm:flex sm:justify-between">
+                          <div className="flex min-w-0 items-center gap-4">
+                            {dog && <img src={dog.photo} alt={dog.name} width={64} height={64} loading="lazy" className="size-14 shrink-0 rounded-2xl object-cover" />}
+                            <div className="min-w-0">
+                              <p className="truncate font-semibold">{b.serviceName}</p>
+                              <p className="text-sm text-muted-foreground">
+                                {dog?.name} · {b.startDate}{b.endDate ? ` – ${b.endDate}` : ""}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex shrink-0 items-center gap-4">
+                            <span className="font-semibold">{inr(b.estimate)}</span>
+                            <StatusBadge status={b.status} />
+                          </div>
+                        </Card>
+                      );
+                    })
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </Section>
+    </>
   );
 }
