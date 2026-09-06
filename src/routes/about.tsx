@@ -67,7 +67,7 @@ function AboutPage() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {sampleReviews.map((r) => (
             <Card key={r.id} className="p-7">
-              <p className="text-sm leading-relaxed">“{r.text}”</p>
+              <p className="text-sm leading-relaxed">“{r.quote}”</p>
               <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Sample testimonial</p>
             </Card>
           ))}
