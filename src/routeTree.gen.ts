@@ -15,7 +15,11 @@ import { Route as BoardingRouteImport } from './routes/boarding'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingsRouteImport } from './routes/bookings'
 import { Route as DaycareRouteImport } from './routes/daycare'
+import { Route as FoodRouteImport } from './routes/food'
+import { Route as GroomingRouteImport } from './routes/grooming'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as TrainingRouteImport } from './routes/training'
+import { Route as VeterinaryRouteImport } from './routes/veterinary'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -48,9 +52,29 @@ const DaycareRoute = DaycareRouteImport.update({
   path: '/daycare',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FoodRoute = FoodRouteImport.update({
+  id: '/food',
+  path: '/food',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GroomingRoute = GroomingRouteImport.update({
+  id: '/grooming',
+  path: '/grooming',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrainingRoute = TrainingRouteImport.update({
+  id: '/training',
+  path: '/training',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VeterinaryRoute = VeterinaryRouteImport.update({
+  id: '/veterinary',
+  path: '/veterinary',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -66,7 +90,11 @@ export interface FileRoutesByFullPath {
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
   '/daycare': typeof DaycareRoute
+  '/food': typeof FoodRoute
+  '/grooming': typeof GroomingRoute
   '/profile': typeof ProfileRoute
+  '/training': typeof TrainingRoute
+  '/veterinary': typeof VeterinaryRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -76,7 +104,11 @@ export interface FileRoutesByTo {
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
   '/daycare': typeof DaycareRoute
+  '/food': typeof FoodRoute
+  '/grooming': typeof GroomingRoute
   '/profile': typeof ProfileRoute
+  '/training': typeof TrainingRoute
+  '/veterinary': typeof VeterinaryRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -87,7 +119,11 @@ export interface FileRoutesById {
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
   '/daycare': typeof DaycareRoute
+  '/food': typeof FoodRoute
+  '/grooming': typeof GroomingRoute
   '/profile': typeof ProfileRoute
+  '/training': typeof TrainingRoute
+  '/veterinary': typeof VeterinaryRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -99,7 +135,11 @@ export interface FileRouteTypes {
     | '/book'
     | '/bookings'
     | '/daycare'
+    | '/food'
+    | '/grooming'
     | '/profile'
+    | '/training'
+    | '/veterinary'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -109,7 +149,11 @@ export interface FileRouteTypes {
     | '/book'
     | '/bookings'
     | '/daycare'
+    | '/food'
+    | '/grooming'
     | '/profile'
+    | '/training'
+    | '/veterinary'
     | '/services'
   id:
     | '__root__'
@@ -119,7 +163,11 @@ export interface FileRouteTypes {
     | '/book'
     | '/bookings'
     | '/daycare'
+    | '/food'
+    | '/grooming'
     | '/profile'
+    | '/training'
+    | '/veterinary'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -130,7 +178,11 @@ export interface RootRouteChildren {
   BookRoute: typeof BookRoute
   BookingsRoute: typeof BookingsRoute
   DaycareRoute: typeof DaycareRoute
+  FoodRoute: typeof FoodRoute
+  GroomingRoute: typeof GroomingRoute
   ProfileRoute: typeof ProfileRoute
+  TrainingRoute: typeof TrainingRoute
+  VeterinaryRoute: typeof VeterinaryRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
@@ -178,11 +230,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DaycareRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/food': {
+      id: '/food'
+      path: '/food'
+      fullPath: '/food'
+      preLoaderRoute: typeof FoodRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grooming': {
+      id: '/grooming'
+      path: '/grooming'
+      fullPath: '/grooming'
+      preLoaderRoute: typeof GroomingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
       fullPath: '/profile'
       preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/training': {
+      id: '/training'
+      path: '/training'
+      fullPath: '/training'
+      preLoaderRoute: typeof TrainingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/veterinary': {
+      id: '/veterinary'
+      path: '/veterinary'
+      fullPath: '/veterinary'
+      preLoaderRoute: typeof VeterinaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -202,7 +282,11 @@ const rootRouteChildren: RootRouteChildren = {
   BookRoute: BookRoute,
   BookingsRoute: BookingsRoute,
   DaycareRoute: DaycareRoute,
+  FoodRoute: FoodRoute,
+  GroomingRoute: GroomingRoute,
   ProfileRoute: ProfileRoute,
+  TrainingRoute: TrainingRoute,
+  VeterinaryRoute: VeterinaryRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
