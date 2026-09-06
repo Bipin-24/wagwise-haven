@@ -13,10 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingsRouteImport } from './routes/bookings'
-import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
-import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -38,11 +36,6 @@ const BookingsRoute = BookingsRouteImport.update({
   path: '/bookings',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CommunityRoute = CommunityRouteImport.update({
-  id: '/community',
-  path: '/community',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -53,20 +46,13 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesSlugRoute = ServicesSlugRouteImport.update({
-  id: '/services/$slug',
-  path: '/services/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
-  '/community': typeof CommunityRoute
   '/profile': typeof ProfileRoute
-  '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -74,9 +60,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
-  '/community': typeof CommunityRoute
   '/profile': typeof ProfileRoute
-  '/services/$slug': typeof ServicesSlugRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -85,41 +69,21 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
-  '/community': typeof CommunityRoute
   '/profile': typeof ProfileRoute
-  '/services/$slug': typeof ServicesSlugRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/book'
-    | '/bookings'
-    | '/community'
-    | '/profile'
-    | '/services/$slug'
-    | '/services/'
+  fullPaths: '/' | '/about' | '/book' | '/bookings' | '/profile' | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/book'
-    | '/bookings'
-    | '/community'
-    | '/profile'
-    | '/services/$slug'
-    | '/services'
+  to: '/' | '/about' | '/book' | '/bookings' | '/profile' | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/book'
     | '/bookings'
-    | '/community'
     | '/profile'
-    | '/services/$slug'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -128,9 +92,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BookRoute: typeof BookRoute
   BookingsRoute: typeof BookingsRoute
-  CommunityRoute: typeof CommunityRoute
   ProfileRoute: typeof ProfileRoute
-  ServicesSlugRoute: typeof ServicesSlugRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
@@ -164,13 +126,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/community': {
-      id: '/community'
-      path: '/community'
-      fullPath: '/community'
-      preLoaderRoute: typeof CommunityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -185,13 +140,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/$slug': {
-      id: '/services/$slug'
-      path: '/services/$slug'
-      fullPath: '/services/$slug'
-      preLoaderRoute: typeof ServicesSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -200,9 +148,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BookRoute: BookRoute,
   BookingsRoute: BookingsRoute,
-  CommunityRoute: CommunityRoute,
   ProfileRoute: ProfileRoute,
-  ServicesSlugRoute: ServicesSlugRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
