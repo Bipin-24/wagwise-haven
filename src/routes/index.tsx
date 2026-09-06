@@ -57,8 +57,6 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
-  const [bruno, goofy] = dogs;
-
   return (
     <>
       {/* 1. Hero */}
@@ -244,7 +242,7 @@ function HomePage() {
           sub="Two dogs. Two personalities. One big reason we started."
         />
         <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {[bruno, goofy].map((d) => (
+          {dogs.map((d) => (
             <Card key={d.id} hover className="overflow-hidden">
               <img
                 src={d.photo}
