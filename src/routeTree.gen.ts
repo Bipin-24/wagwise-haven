@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as BoardingRouteImport } from './routes/boarding'
 import { Route as BookRouteImport } from './routes/book'
 import { Route as BookingsRouteImport } from './routes/bookings'
+import { Route as DaycareRouteImport } from './routes/daycare'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 
@@ -42,6 +43,11 @@ const BookingsRoute = BookingsRouteImport.update({
   path: '/bookings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DaycareRoute = DaycareRouteImport.update({
+  id: '/daycare',
+  path: '/daycare',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/boarding': typeof BoardingRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
+  '/daycare': typeof DaycareRoute
   '/profile': typeof ProfileRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/boarding': typeof BoardingRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
+  '/daycare': typeof DaycareRoute
   '/profile': typeof ProfileRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/boarding': typeof BoardingRoute
   '/book': typeof BookRoute
   '/bookings': typeof BookingsRoute
+  '/daycare': typeof DaycareRoute
   '/profile': typeof ProfileRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/boarding'
     | '/book'
     | '/bookings'
+    | '/daycare'
     | '/profile'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/boarding'
     | '/book'
     | '/bookings'
+    | '/daycare'
     | '/profile'
     | '/services'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/boarding'
     | '/book'
     | '/bookings'
+    | '/daycare'
     | '/profile'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   BoardingRoute: typeof BoardingRoute
   BookRoute: typeof BookRoute
   BookingsRoute: typeof BookingsRoute
+  DaycareRoute: typeof DaycareRoute
   ProfileRoute: typeof ProfileRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/daycare': {
+      id: '/daycare'
+      path: '/daycare'
+      fullPath: '/daycare'
+      preLoaderRoute: typeof DaycareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   BoardingRoute: BoardingRoute,
   BookRoute: BookRoute,
   BookingsRoute: BookingsRoute,
+  DaycareRoute: DaycareRoute,
   ProfileRoute: ProfileRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
