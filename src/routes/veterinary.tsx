@@ -5,7 +5,7 @@ import { Badge, ButtonLink, Card, PageHero, Section, SectionHeading } from "@/co
 
 const title = "Veterinary Support — Paw Brothers Pune";
 const description =
-  "Veterinary expertise with trust at the center. Paw Brothers' veterinary support in Pune is coming soon, guided by Veterinary Advisor Sonal Dixit.";
+  "In-house veterinary care at Paw Brothers Pune. Every dog's health, food and medication is reviewed by our resident veterinarian, Dr. Sonal Dixit.";
 
 export const Route = createFileRoute("/veterinary")({
   head: () => ({
@@ -35,10 +35,10 @@ function VeterinaryPage() {
       <PageHero
         eyebrow="🩺 Veterinary"
         title="Veterinary expertise with trust at the center."
-        sub="Veterinary knowledge shapes how we plan care, keep records and respond to questions about your dog."
+        sub="Every dog who stays with us has their health, food and medication reviewed by our resident veterinarian — before the first meal is served."
         image={img.vet}
       >
-        <Badge tone="accent">Coming Soon</Badge>
+        <Badge tone="sage">Open today</Badge>
       </PageHero>
 
       <Section>
@@ -61,21 +61,20 @@ function VeterinaryPage() {
           <div>
             <SectionHeading
               align="left"
-              eyebrow="Planned services"
-              title="What veterinary support will cover"
+              eyebrow="What we do"
+              title="Health care that never leaves the building"
             />
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {vetServices.map((s) => (
                 <Card key={s} hover className="flex items-center justify-between gap-3 p-5">
                   <span className="font-medium">{s}</span>
-                  <Badge tone="accent">Coming Soon</Badge>
+                  <Badge tone="sage">Available</Badge>
                 </Card>
               ))}
             </div>
             <p className="mt-8 rounded-2xl bg-secondary p-5 text-sm leading-relaxed text-muted-foreground">
-              Veterinary services will be provided by appropriately qualified professionals and
-              subject to applicable regulations. Paw Brothers does not provide medical advice within
-              this application.
+              Veterinary care at Paw Brothers is provided by qualified professionals and subject to
+              applicable regulations. Anything urgent is handled in person, not through this site.
             </p>
             <ButtonLink to="/contact" className="mt-6">
               Get in touch

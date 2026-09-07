@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Dog Grooming in Pune — Paw Brothers";
 const description =
-  "Gentle, thoughtful grooming for happy dogs — bath, brush, coat care, nail care and ear cleaning. Coming soon in Pune.";
+  "Gentle, unhurried grooming in Pune — bath, brush, coat care, nail care and ear cleaning, always at your dog’s pace.";
 
 export const Route = createFileRoute("/grooming")({
   head: () => ({
@@ -50,7 +50,7 @@ function GroomingPage() {
         <SectionHeading
           eyebrow="Request a slot"
           title="Book a grooming visit"
-          sub="Demo booking — nothing is charged and no slot is reserved yet."
+          sub="Pick a time that suits you — we confirm by WhatsApp before the appointment."
         />
         <Card className="mx-auto mt-10 max-w-3xl p-8">
           {done ? (

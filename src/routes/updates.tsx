@@ -28,7 +28,7 @@ function UpdatesPage() {
 
   return (
     <>
-      <PageHero eyebrow="Paw Updates" title="How their day is going." sub="A future feature, previewed with demo updates — walks, meals, play, rest and photos." />
+      <PageHero eyebrow="Paw Updates" title="How their day is going." sub="Walks, meals, play, rest and photos — sent to you through the day, every day they are with us." />
       <Section>
         <div className="flex gap-2">
           {dogs.map((d) => (

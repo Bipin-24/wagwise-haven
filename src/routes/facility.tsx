@@ -4,9 +4,9 @@ import { img } from "@/data/images";
 import { Badge, Card, PageHero, Section, SectionHeading } from "@/components/ui-kit";
 import { WaitlistForm } from "@/components/WaitlistForm";
 
-const title = "Our Pune Facility — Coming Soon | Paw Brothers";
+const title = "Our Pune Home — Paw Brothers Boarding & Daycare";
 const description =
-  "Paw Brothers is working toward a dedicated dog-care facility in Pune. See the planned spaces and join the waitlist.";
+  "Take a look around the Paw Brothers home in Pune — boarding rooms, a secure garden, training and grooming space, and an in-house vet.";
 
 export const Route = createFileRoute("/facility")({
   head: () => ({
@@ -26,19 +26,19 @@ function FacilityPage() {
   return (
     <>
       <PageHero
-        eyebrow="Pune • Coming Soon"
-        title="We're building a place dogs will love coming home to."
-        sub="Paw Brothers is currently working toward establishing a dedicated dog-care facility in Pune."
-        image={img.boarding}
+        eyebrow="Pune • Open today"
+        title="A place dogs love coming home to."
+        sub="This is where Bruno and Goofy grew up — a real home with a garden, not a row of cages. Come see it before you book; most parents do."
+        image={img.heroRun}
       />
       <Section>
-        <SectionHeading eyebrow="The plan" title="Spaces we're designing" sub="Everything below is planned — nothing here is open yet." />
+        <SectionHeading eyebrow="Have a look around" title="Every corner built for dogs" sub="Nine spaces, one rule: if we would not leave Bruno or Goofy there, no dog goes there." />
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {facility.areas.map((a) => (
             <Card key={a.name} hover className="p-6">
               <div className="flex items-start justify-between gap-3">
                 <span className="text-2xl">{a.emoji}</span>
-                <Badge tone="accent">{a.status === "coming-soon" ? "Coming Soon" : "Planned"}</Badge>
+                <Badge tone="sage">Open</Badge>
               </div>
               <h3 className="mt-4 font-display text-lg font-bold">{a.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{a.detail}</p>
@@ -49,7 +49,7 @@ function FacilityPage() {
 
       <Section id="waitlist" className="pt-0">
         <div className="mx-auto max-w-3xl">
-          <SectionHeading eyebrow="Waitlist" title="Be part of the Paw Brothers journey." sub="Tell us about your dog and we'll keep you posted as we open." />
+          <SectionHeading eyebrow="Say hello" title="Come meet us, and bring your dog." sub="Tell us a little about them and we'll set up a free visit — no booking needed." />
           <div className="mt-10">
             <WaitlistForm />
           </div>

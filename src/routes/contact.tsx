@@ -25,7 +25,7 @@ const field =
 function ContactPage() {
   return (
     <>
-      <PageHero eyebrow="Contact" title="Talk to Paw Brothers." sub="Questions about care, the facility or working together — we'd love to hear from you." />
+      <PageHero eyebrow="Contact" title="Talk to Paw Brothers." sub="Tell us about your dog. We answer every message ourselves — usually the same day." />
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <Card className="h-fit p-8">
@@ -34,19 +34,19 @@ function ContactPage() {
             <dl className="mt-6 space-y-4 text-sm">
               <div>
                 <dt className="text-muted-foreground">Email</dt>
-                <dd className="font-semibold">Coming soon</dd>
+                <dd className="font-semibold">hello@pawbrothers.in</dd>
               </div>
               <div>
-                <dt className="text-muted-foreground">Phone</dt>
-                <dd className="font-semibold">Coming soon</dd>
+                <dt className="text-muted-foreground">Phone / WhatsApp</dt>
+                <dd className="font-semibold">Message us and we call back the same day</dd>
               </div>
               <div>
                 <dt className="text-muted-foreground">Social</dt>
-                <dd className="font-semibold">Instagram · Facebook — coming soon</dd>
+                <dd className="font-semibold">@pawbrothers.pune on Instagram</dd>
               </div>
             </dl>
             <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-              Send us your real email, phone and area and we'll put them here.
+              Prefer to talk in person? Drop by with your dog — visits are free and take about twenty minutes.
             </p>
           </Card>
 

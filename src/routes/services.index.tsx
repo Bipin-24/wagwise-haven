@@ -27,7 +27,7 @@ function ServicesPage() {
       <PageHero
         eyebrow="Services"
         title="Everything your dog needs. One trusted place."
-        sub="Paw Brothers is being built as a complete dog-care ecosystem for Pune — starting with care, learning and wellness."
+        sub="Boarding, daycare, training, grooming, vet care and fresh food — everything your dog needs, under one roof in Pune."
       />
       <Section>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

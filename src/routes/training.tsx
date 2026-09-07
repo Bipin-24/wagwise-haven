@@ -5,7 +5,7 @@ import { inr, trainingPrograms } from "@/data/mock";
 
 const title = "Dog Training in Pune — Paw Brothers";
 const description =
-  "Puppy training, obedience, behaviour work, socialization and advanced training for dogs in Pune. Reward-based programmes, coming soon.";
+  "Puppy training, obedience, behaviour work, socialization and advanced training for dogs in Pune. Reward-based programmes that work.";
 
 export const Route = createFileRoute("/training")({
   head: () => ({
@@ -32,7 +32,7 @@ function TrainingPage() {
         <SectionHeading
           eyebrow="Programmes"
           title="Find the right programme"
-          sub="Demo pricing — final pricing coming soon."
+          sub="Everything included — home sessions, notes after each class and WhatsApp support between them."
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {trainingPrograms.map((p) => (

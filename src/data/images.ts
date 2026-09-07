@@ -11,6 +11,9 @@ import brunoSit from "@/assets/bruno-sit.jpg.asset.json";
 import goofyGarden from "@/assets/goofy-garden.jpg.asset.json";
 import goofyParent from "@/assets/goofy-parent.jpg.asset.json";
 import goofyTree from "@/assets/goofy-tree.jpg.asset.json";
+import heroRun from "@/assets/hero-run.jpg.asset.json";
+import heroBall from "@/assets/hero-ball.jpg.asset.json";
+import heroPlay from "@/assets/hero-play.jpg.asset.json";
 
 import boarding from "@/assets/gen/boarding.jpg";
 import training from "@/assets/gen/training.jpg";
@@ -26,6 +29,9 @@ import productFresh from "@/assets/gen/product-fresh.jpg";
 export const img = {
   logo: logo.url,
   brothers: brothersTogether.url,
+  heroRun: heroRun.url,
+  heroBall: heroBall.url,
+  heroPlay: heroPlay.url,
   brunoSofa: brunoSofa.url,
   brunoRest: brunoRest.url,
   brunoBalcony: brunoBalcony.url,

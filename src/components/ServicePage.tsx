@@ -28,7 +28,7 @@ export function ServicePage({
       >
         <ButtonLink to="/book">Start a booking</ButtonLink>
         <ButtonLink to="/facility" variant="outline">
-          See the planned facility
+          Visit our Pune home
         </ButtonLink>
         <span className="inline-flex items-center">
           <ServiceStatusBadge status={service.status} />
@@ -58,8 +58,8 @@ export function ServicePage({
         <Section className="pt-0">
           <SectionHeading
             eyebrow="Pricing"
-            title="Simple, transparent plans"
-            sub="Demo pricing — final pricing coming soon."
+            title="Honest pricing, written down"
+            sub="Everything included. No hidden add-ons, no surprises at pick-up."
           />
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {plans.map((p) => (
