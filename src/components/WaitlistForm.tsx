@@ -42,7 +42,7 @@ export function WaitlistForm() {
           area: String(data.get("area") ?? ""),
           interests: selected,
         });
-        toast.success("Added to the Paw Brothers waitlist");
+        toast.success("Thanks — we'll be in touch to set up your visit");
         setDone(true);
       }}
       className="grid gap-4 sm:grid-cols-2"
@@ -80,7 +80,7 @@ export function WaitlistForm() {
         type="submit"
         className="rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5 sm:col-span-2"
       >
-        Join the Paw Brothers Waitlist
+        Book a free visit
       </button>
     </form>
   );

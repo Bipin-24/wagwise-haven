@@ -22,7 +22,7 @@ export const Route = createFileRoute("/profile")({
 function ProfilePage() {
   return (
     <>
-      <PageHero eyebrow="Profile" title={owner.name} sub="Demo account — sign-in comes later." />
+      <PageHero eyebrow="Profile" title={owner.name} sub="Your dogs, your bookings and your care instructions, all in one place." />
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
           <Card className="p-7">

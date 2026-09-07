@@ -50,7 +50,7 @@ function GroomingPage() {
         <SectionHeading
           eyebrow="Request a slot"
           title="Book a grooming visit"
-          sub="Demo booking — nothing is charged and no slot is reserved yet."
+          sub="Pick a time that suits you — we confirm by WhatsApp before the appointment."
         />
         <Card className="mx-auto mt-10 max-w-3xl p-8">
           {done ? (

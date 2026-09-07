@@ -41,7 +41,7 @@ function BookPage() {
 
   return (
     <>
-      <PageHero eyebrow="Book" title="Request a stay." sub="Six simple steps. Demo booking — no payment and no confirmed reservation yet." />
+      <PageHero eyebrow="Book" title="Request a stay." sub="Six short steps. We confirm every request personally, usually within a couple of hours." />
       <Section className="pt-0">
         <Card className="mx-auto max-w-3xl p-8">
           <ol className="mb-8 flex flex-wrap gap-2 text-xs font-semibold">
@@ -106,7 +106,7 @@ function BookPage() {
             <div>
               <h2 className="font-display text-2xl font-bold">Review</h2>
               <dl className="mt-5 space-y-3 text-sm">
-                {[["Dog", dog], ["Service", serviceName], ["Dates", [start, end].filter(Boolean).join(" – ") || "To confirm"], ["Care instructions", Object.values(notes).filter(Boolean).join(" · ") || "None added"], ["Estimated price", `${inr(899)} per night (demo pricing)`]].map(([k, v]) => (
+                {[["Dog", dog], ["Service", serviceName], ["Dates", [start, end].filter(Boolean).join(" – ") || "To confirm"], ["Care instructions", Object.values(notes).filter(Boolean).join(" · ") || "None added"], ["Estimated price", `${inr(899)} per night`]].map(([k, v]) => (
                   <div key={k} className="flex justify-between gap-6 border-b border-border pb-3">
                     <dt className="text-muted-foreground">{k}</dt>
                     <dd className="text-right font-semibold">{v}</dd>

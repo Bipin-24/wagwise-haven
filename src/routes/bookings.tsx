@@ -30,7 +30,7 @@ const groups: { key: BookingStatus; label: string }[] = [
 function BookingsPage() {
   return (
     <>
-      <PageHero eyebrow="Bookings" title="Your bookings" sub="Demo bookings — nothing here is a live reservation yet." />
+      <PageHero eyebrow="Bookings" title="Your bookings" sub="Everything you have booked with us — past, present and upcoming." />
       <Section>
         <div className="space-y-12">
           {groups.map((g) => {
