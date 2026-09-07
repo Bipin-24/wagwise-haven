@@ -1,4 +1,4 @@
-create table public.visit_requests (
+create table if not exists public.visit_requests (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz not null default now(),
   customer_name text not null,
@@ -12,6 +12,8 @@ create table public.visit_requests (
 );
 
 alter table public.visit_requests enable row level security;
+
+drop policy if exists "Anyone can request a free visit" on public.visit_requests;
 
 create policy "Anyone can request a free visit"
   on public.visit_requests
