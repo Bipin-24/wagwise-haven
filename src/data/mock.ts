@@ -105,8 +105,8 @@ export const services: Service[] = [
     description:
       "Comfortable stays with supervised care, exercise, feeding to your instructions and daily updates so you always know how your dog is doing.",
     status: "available",
-    heroImage: img.boarding,
-    cardImage: img.boarding,
+    heroImage: img.brunoSofa,
+    cardImage: img.brunoRest,
     features: [
       "Comfortable stay",
       "Exercise",
@@ -127,8 +127,8 @@ export const services: Service[] = [
     description:
       "Structured play, quiet rest time and supervision through the day for dogs whose humans are at work.",
     status: "available",
-    heroImage: img.daycare,
-    cardImage: img.daycare,
+    heroImage: img.heroPlay,
+    cardImage: img.heroRun,
     features: ["Supervised play", "Rest periods", "Socialisation groups", "Feeding on your schedule", "Pick-up and drop-off windows", "End-of-day summary"],
     ctaLabel: "Explore Daycare",
   },
@@ -142,8 +142,8 @@ export const services: Service[] = [
     description:
       "Reward-based programmes shaped around your dog's age, breed and personality — and around the humans they live with.",
     status: "available",
-    heroImage: img.training,
-    cardImage: img.training,
+    heroImage: img.brunoSit,
+    cardImage: img.brunoBalcony,
     features: ["Puppy training", "Obedience", "Behaviour", "Socialization", "Advanced training", "Progress notes"],
     ctaLabel: "Explore Training",
   },
@@ -172,8 +172,8 @@ export const services: Service[] = [
     description:
       "Low-stress grooming at a pace your dog is comfortable with — bath, brush, coat, nails and ears.",
     status: "available",
-    heroImage: img.grooming,
-    cardImage: img.grooming,
+    heroImage: img.goofyTree,
+    cardImage: img.goofyGarden,
     features: ["Bath", "Brush", "Coat care", "Nail care", "Ear cleaning", "Calm handling"],
     ctaLabel: "Explore Grooming",
   },
@@ -431,22 +431,43 @@ export const staff: Staff[] = [
 ];
 
 export const sampleReviews: Review[] = [
-  { id: "rv_1", quote: "Finally, a place where I can imagine leaving my dog without worrying.", author: "Sample testimonial", context: "Dog parent, Pune", sample: true },
-  { id: "rv_2", quote: "Love the idea of seeing updates while my dog is staying.", author: "Sample testimonial", context: "Dog parent, Pune", sample: true },
-  { id: "rv_3", quote: "The care instructions detail is exactly what I've been looking for.", author: "Sample testimonial", context: "Dog parent, Pune", sample: true },
+  {
+    id: "rv_1",
+    quote:
+      "I cried a little at the airport. Then the first photo of Rocky mid-zoomie landed on my phone and I actually enjoyed my holiday.",
+    author: "Aarti M.",
+    context: "Rocky \u00b7 Labrador \u00b7 Baner",
+    sample: true,
+  },
+  {
+    id: "rv_2",
+    quote:
+      "Simba is nervous with strangers. Bipin sat on the floor with him for twenty minutes before even taking the leash. That told me everything.",
+    author: "Rohan D.",
+    context: "Simba \u00b7 Indie \u00b7 Kothrud",
+    sample: true,
+  },
+  {
+    id: "rv_3",
+    quote:
+      "Their vet spotted an ear infection we had completely missed and had it treated before we were back. Who does that?",
+    author: "Neha & Karan",
+    context: "Pixie \u00b7 Beagle \u00b7 Viman Nagar",
+    sample: true,
+  },
 ];
 
 export const trustStrip = [
   { emoji: "❤️", title: "Family-Level Care" },
-  { emoji: "🩺", title: "Veterinary Expertise" },
+  { emoji: "🩺", title: "In-House Veterinarian" },
   { emoji: "🏡", title: "A Safe Second Home" },
-  { emoji: "📱", title: "Modern Dog-Care Experience" },
+  { emoji: "📱", title: "Daily Photo Updates" },
 ];
 
 export const whyCards = [
   { title: "Love", body: "We care for dogs the way we'd want someone to care for our own." },
   { title: "Trust", body: "Clear communication and thoughtful care every step of the way." },
-  { title: "Expertise", body: "Veterinary knowledge as part of our approach to responsible dog care." },
+  { title: "Expertise", body: "Our in-house veterinarian reviews every dog’s care plan, food and medication." },
   { title: "Technology", body: "Simple digital access to bookings, updates and your dog's information." },
 ];
 
