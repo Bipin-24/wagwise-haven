@@ -115,7 +115,7 @@ function HomePage() {
         <SectionHeading
           eyebrow="Why Paw Brothers"
           title="More than a place to stay."
-          sub="Paw Brothers is being built around one simple belief: caring for a dog should feel personal, responsible and trustworthy."
+          sub="One simple belief runs through everything here: caring for a dog should feel personal, responsible and completely trustworthy."
         />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {whyCards.map((c) => (
