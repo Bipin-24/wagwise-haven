@@ -416,9 +416,9 @@ export const foodCategories = [
 export const vets: Vet[] = [
   {
     id: "vet_1",
-    name: "Sonal Dixit",
+    name: "Dr. Sonal Dixit",
     role: "Veterinary Advisor",
-    bio: "Sonal Dixit is a qualified veterinarian with undergraduate and postgraduate veterinary education and is currently pursuing a PhD in Veterinary Surgery.",
+    bio: "Dr. Sonal Dixit is a qualified veterinarian with undergraduate and postgraduate veterinary education and is currently pursuing a PhD in Veterinary Surgery.",
   },
 ];
 
@@ -439,16 +439,16 @@ export const founders = [
   },
   {
     id: "team_3",
-    name: "Sonal Dixit",
+    name: "Dr. Sonal Dixit",
     role: "Veterinary Advisor",
-    bio: "Sonal Dixit is a qualified veterinarian with undergraduate and postgraduate veterinary education and is currently pursuing a PhD in Veterinary Surgery.",
+    bio: "Dr. Sonal Dixit is a qualified veterinarian with undergraduate and postgraduate veterinary education and is currently pursuing a PhD in Veterinary Surgery.",
     photo: img.vet,
   },
 ];
 
 export const staff: Staff[] = [
   { id: "st_1", name: "Bipin Pandey", role: "Founder" },
-  { id: "st_2", name: "Sonal Dixit", role: "Veterinary Advisor" },
+  { id: "st_2", name: "Dr. Sonal Dixit", role: "Veterinary Advisor" },
 ];
 
 export const sampleReviews: Review[] = [

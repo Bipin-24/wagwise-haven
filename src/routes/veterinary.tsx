@@ -96,7 +96,7 @@ function VeterinaryPage() {
       <Section className="pt-0">
         <SectionHeading
           eyebrow="Care in practice"
-          title="The Paw Brothers under Sonal's care"
+          title="The Paw Brothers under Dr. Sonal's care"
           sub="A familiar face, careful observation and practical guidance for every dog in our care."
         />
         <div className="mt-10 grid gap-6 md:grid-cols-2">

@@ -32,18 +32,22 @@ export function WaitlistForm() {
       onSubmit={async (e) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
-        await joinWaitlist({
-          name: String(data.get("name") ?? ""),
-          phone: String(data.get("phone") ?? ""),
-          email: String(data.get("email") ?? ""),
-          dogName: String(data.get("dogName") ?? ""),
-          breed: String(data.get("breed") ?? ""),
-          age: String(data.get("age") ?? ""),
-          area: String(data.get("area") ?? ""),
-          interests: selected,
-        });
-        toast.success("Thanks — we'll be in touch to set up your visit");
-        setDone(true);
+        try {
+          await joinWaitlist({
+            name: String(data.get("name") ?? ""),
+            phone: String(data.get("phone") ?? ""),
+            email: String(data.get("email") ?? ""),
+            dogName: String(data.get("dogName") ?? ""),
+            breed: String(data.get("breed") ?? ""),
+            age: String(data.get("age") ?? ""),
+            area: String(data.get("area") ?? ""),
+            interests: selected,
+          });
+          toast.success("Thanks — we'll be in touch to set up your visit");
+          setDone(true);
+        } catch (error) {
+          toast.error(error instanceof Error ? error.message : "Could not request a free visit.");
+        }
       }}
       className="grid gap-4 sm:grid-cols-2"
     >

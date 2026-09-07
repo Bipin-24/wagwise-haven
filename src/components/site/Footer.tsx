@@ -100,7 +100,7 @@ export function Footer() {
             <li className="flex items-start gap-2">
               <Phone className="mt-0.5 size-4 shrink-0" />
               <span>
-                Sonal, Veterinary Advisor: <a href="tel:+919111821045" className="transition-colors hover:text-primary-foreground">9111821045</a>
+                Dr. Sonal Dixit, Veterinary Advisor: <a href="tel:+919111821045" className="transition-colors hover:text-primary-foreground">9111821045</a>
               </span>
             </li>
           </ul>

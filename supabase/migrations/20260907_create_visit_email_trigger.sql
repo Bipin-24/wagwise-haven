@@ -1,8 +1,6 @@
 -- Replace BOOKING_WEBHOOK_SECRET_VALUE with the same letters-and-numbers value
 -- stored in the BOOKING_WEBHOOK_SECRET Edge Function secret.
-create extension if not exists pg_net;
-
-create or replace function public.send_booking_notification()
+create or replace function public.send_visit_notification()
 returns trigger
 language plpgsql
 security definer
@@ -15,18 +13,15 @@ begin
       'Content-Type', 'application/json',
       'x-webhook-secret', 'BOOKING_WEBHOOK_SECRET_VALUE'
     ),
-    body := jsonb_build_object(
-      'record', to_jsonb(new),
-      'old_record', case when tg_op = 'UPDATE' then to_jsonb(old) else null end
-    )
+    body := jsonb_build_object('visit_request', to_jsonb(new))
   );
   return new;
 end;
 $$;
 
-drop trigger if exists email_new_booking_request on public.booking_requests;
+drop trigger if exists email_new_visit_request on public.visit_requests;
 
-create trigger email_new_booking_request
-after insert or update of status on public.booking_requests
+create trigger email_new_visit_request
+after insert on public.visit_requests
 for each row
-execute function public.send_booking_notification();
+execute function public.send_visit_notification();

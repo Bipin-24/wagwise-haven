@@ -1,6 +1,6 @@
 # Booking email notifications
 
-This function emails Paw Brothers when a row is inserted into `booking_requests`.
+This function emails Paw Brothers when a row is inserted into `booking_requests` and emails a customer when their request changes to `confirmed`.
 
 ## 1. Create a Resend account
 
@@ -34,5 +34,5 @@ Replace `BOOKING_WEBHOOK_SECRET_VALUE` in the script with the exact value of the
 numbers only for this secret so it is safe to place inside the SQL string.
 
 The trigger uses Supabase's `pg_net` extension to call the Edge Function after every
-new booking. Submit a booking through `/book`; a new email should arrive at
-`pawbrothers24@gmail.com`.
+new booking and status update. A new booking sends an owner notification. Changing a
+request to `confirmed` in `/dashboard` sends a confirmation to the customer's email.

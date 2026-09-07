@@ -42,7 +42,7 @@ function ContactPage() {
               </div>
               <div>
                 <dt className="text-muted-foreground">Veterinary Advisor</dt>
-                <dd className="font-semibold">Sonal: 9111821045</dd>
+                <dd className="font-semibold">Dr. Sonal Dixit: 9111821045</dd>
               </div>
               <div>
                 <dt className="text-muted-foreground">Social</dt>

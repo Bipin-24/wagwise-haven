@@ -125,6 +125,17 @@ export const getVets = () => vets;
 export const getReviews = () => sampleReviews;
 
 export const joinWaitlist = async (entry: WaitlistEntry) => {
-  // Mock submission — stored in memory only for this phase.
-  return { ok: true, entry };
+  if (!supabase) throw new Error("Visit requests are not configured yet. Please contact Paw Brothers directly.");
+  const { error } = await supabase.from("visit_requests").insert({
+    customer_name: entry.name,
+    customer_email: entry.email,
+    customer_phone: entry.phone,
+    dog_name: entry.dogName || null,
+    breed: entry.breed || null,
+    dog_age: entry.age || null,
+    area: entry.area || null,
+    interests: entry.interests,
+  });
+  if (error) throw error;
+  return { ok: true };
 };
