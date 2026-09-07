@@ -5,7 +5,7 @@ import { dayTimeline } from "@/data/mock";
 
 const title = "Dog Boarding in Pune — Paw Brothers";
 const description =
-  "A second home while you're away. Supervised dog boarding in Pune with feeding to your instructions, exercise, rest and daily updates. Coming soon.";
+  "A second home while you’re away. Supervised dog boarding in Pune with feeding to your instructions, exercise, rest and daily photo updates.";
 
 export const Route = createFileRoute("/boarding")({
   head: () => ({

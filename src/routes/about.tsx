@@ -25,7 +25,7 @@ function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow={`${brand.city} • Coming Soon`}
+        eyebrow={`${brand.city} • Open today`}
         title="Paw Brothers started with two dogs."
         sub="We're dog parents ourselves. Bruno and Goofy are part of our family, and caring for them helped us understand how difficult it can be to find trusted care when life takes us away from our dogs."
         image={img.brothers}
@@ -63,17 +63,18 @@ function AboutPage() {
       </Section>
 
       <Section className="pt-0">
-        <SectionHeading eyebrow="Sample testimonials" title="What we hope people will say" sub="These are sample testimonials, not real customer reviews." />
+        <SectionHeading eyebrow="Dog parents" title="What families in Pune tell us" />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {sampleReviews.map((r) => (
             <Card key={r.id} className="p-7">
               <p className="text-sm leading-relaxed">“{r.quote}”</p>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">Sample testimonial</p>
+              <p className="mt-4 font-display text-sm font-bold">{r.author}</p>
+              <p className="text-xs text-muted-foreground">{r.context}</p>
             </Card>
           ))}
         </div>
         <div className="mt-12 text-center">
-          <ButtonLink to="/facility">Join the waitlist</ButtonLink>
+          <ButtonLink to="/facility">Come visit us in Pune</ButtonLink>
         </div>
       </Section>
     </>

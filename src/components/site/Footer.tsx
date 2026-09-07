@@ -38,7 +38,7 @@ export function Footer() {
             <MapPin className="size-4" /> {brand.city}
           </p>
           <p className="mt-2 flex items-center gap-2 text-sm text-primary-foreground/70">
-            <Instagram className="size-4" /> Social links coming soon
+            <Instagram className="size-4" /> @pawbrothers.pune
           </p>
         </div>
 

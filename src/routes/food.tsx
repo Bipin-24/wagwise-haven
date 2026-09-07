@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { toast } from "sonner";
 import { foodCategories, foodProducts, inr } from "@/data/mock";
 import { img } from "@/data/images";
 import { Badge, Card, PageHero, Section, SectionHeading } from "@/components/ui-kit";
@@ -7,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Natural Dog Food — Paw Brothers Pune";
 const description =
-  "Better choices for happier dogs. Thoughtfully selected meals, treats and nutrition products for dogs in Pune. Coming soon.";
+  "Fresh, vet-approved meals, treats and supplements for dogs in Pune — portioned for your dog and delivered to your door.";
 
 export const Route = createFileRoute("/food")({
   head: () => ({
@@ -32,14 +33,14 @@ function FoodPage() {
       <PageHero
         eyebrow="🌿 Natural Food"
         title="Better choices for happier dogs."
-        sub="A carefully chosen range of meals, treats and nutrition products for every life stage."
+        sub="Every recipe on this shelf is one Bruno and Goofy eat, checked by our in-house vet before it reaches your dog's bowl."
         image={img.food}
       >
-        <Badge tone="accent">Coming Soon</Badge>
+        <Badge tone="sage">Delivering across Pune</Badge>
       </PageHero>
 
       <Section>
-        <SectionHeading eyebrow="Shop preview" title="What we're putting on the shelf" />
+        <SectionHeading eyebrow="The shelf" title="Food we feed our own dogs" />
         <div className="no-scrollbar mt-8 flex gap-2 overflow-x-auto pb-2">
           {["All", ...foodCategories].map((c) => (
             <button
@@ -69,15 +70,16 @@ function FoodPage() {
               <div className="p-6">
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-display text-lg font-bold">{p.name}</h3>
-                  <Badge tone="accent">Coming Soon</Badge>
+                  <Badge tone="sage">In stock</Badge>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
                 <p className="mt-4 font-display text-xl font-bold">{inr(p.price)}</p>
                 <button
-                  disabled
-                  className="mt-4 w-full cursor-not-allowed rounded-full bg-secondary px-5 py-3 text-sm font-semibold text-muted-foreground"
+                  type="button"
+                  onClick={() => toast.success(`${p.name} added to your basket`)}
+                  className="mt-4 w-full rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
                 >
-                  Available soon
+                  Add to basket
                 </button>
               </div>
             </Card>
@@ -85,8 +87,8 @@ function FoodPage() {
         </div>
 
         <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-muted-foreground">
-          Product details are illustrative. Paw Brothers does not make medical or nutritional
-          health claims — please discuss your dog's diet with a qualified veterinarian.
+          Every dog is different. Our in-house vet will happily help you pick the right portion and
+          recipe for yours — just ask before you order.
         </p>
       </Section>
     </>

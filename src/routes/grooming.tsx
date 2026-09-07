@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Dog Grooming in Pune — Paw Brothers";
 const description =
-  "Gentle, thoughtful grooming for happy dogs — bath, brush, coat care, nail care and ear cleaning. Coming soon in Pune.";
+  "Gentle, unhurried grooming in Pune — bath, brush, coat care, nail care and ear cleaning, always at your dog’s pace.";
 
 export const Route = createFileRoute("/grooming")({
   head: () => ({
