@@ -29,6 +29,9 @@ import productFresh from "@/assets/gen/product-fresh.jpg";
 export const img = {
   logo: logo.url,
   brothers: brothersTogether.url,
+  heroRun: heroRun.url,
+  heroBall: heroBall.url,
+  heroPlay: heroPlay.url,
   brunoSofa: brunoSofa.url,
   brunoRest: brunoRest.url,
   brunoBalcony: brunoBalcony.url,
