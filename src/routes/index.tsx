@@ -25,7 +25,7 @@ import { WaitlistForm } from "@/components/WaitlistForm";
 
 const title = "Paw Brothers — Dog boarding, daycare & training in Pune";
 const description =
-  "Built by dog parents, for dog parents. Thoughtful boarding, daycare, training, grooming and wellness for dogs in Pune. Coming soon.";
+  "Boarding, daycare, training, grooming, in-house vet care and fresh food for dogs in Pune. Run by dog parents, watched over by our own two dogs.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -68,12 +68,12 @@ function HomePage() {
               Built by dog parents, for dog parents.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Thoughtful boarding, daycare, training, wellness and care for dogs in Pune — created
-              by people who know that dogs are family.
+              Boarding, daycare, training, grooming, in-house vet care and fresh food in Pune —
+              from people whose own two dogs sleep in the same rooms yours will.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink to="/services">
-                Explore Paw Brothers <ArrowRight className="size-4" />
+                Book a stay <ArrowRight className="size-4" />
               </ButtonLink>
               <ButtonLink to="/bruno" variant="outline">
                 Meet Bruno &amp; Goofy
@@ -83,8 +83,8 @@ function HomePage() {
           <div className="relative">
             <div className="overflow-hidden rounded-[2.5rem] shadow-lift">
               <img
-                src={img.brothers}
-                alt="Bruno the German Shepherd and Goofy the Golden Retriever together"
+                src={img.heroRun}
+                alt="A happy dog running at full speed across the Paw Brothers garden in Pune"
                 width={960}
                 height={1280}
                 className="aspect-[4/5] w-full object-cover sm:aspect-[5/4]"
@@ -295,14 +295,15 @@ function HomePage() {
       <Section className="pt-0">
         <Card className="grid items-center gap-8 overflow-hidden p-8 lg:grid-cols-[1.2fr_1fr] lg:p-12">
           <div>
-            <Badge tone="accent">Coming Soon</Badge>
+            <Badge tone="sage">In-house · every single day</Badge>
             <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl">
-              Veterinary expertise with trust at the center.
+              A vet in the family, and in the building.
             </h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Sonal Dixit, our Veterinary Advisor, is a qualified veterinarian with undergraduate
-              and postgraduate veterinary education and is currently pursuing a PhD in Veterinary
-              Surgery.
+              Dr. Sonal Dixit is our resident veterinarian — and the founder's sister. A qualified
+              vet with postgraduate veterinary education, currently pursuing a PhD in Veterinary
+              Surgery, she reviews every dog's health, food and medication herself. Nothing is
+              guessed at, and nobody waits for an appointment.
             </p>
             <ButtonLink to="/veterinary" className="mt-6">
               Learn more
@@ -319,28 +320,29 @@ function HomePage() {
         </Card>
       </Section>
 
-      {/* 10. Facility coming soon */}
+      {/* 10. Our home in Pune */}
       <Section className="pt-0">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <img
-            src={img.boarding}
-            alt="A calm indoor space for dogs"
+            src={img.heroPlay}
+            alt="Dogs playing in the secure garden at the Paw Brothers home in Pune"
             width={900}
             height={700}
             loading="lazy"
             className="aspect-[5/4] w-full rounded-[2rem] object-cover shadow-soft"
           />
           <div>
-            <Badge tone="cream">Planned · Pune</Badge>
+            <Badge tone="cream">Pune · Open six days a week</Badge>
             <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl">
-              We're building a place dogs will love coming home to.
+              A home with a garden, not a row of cages.
             </h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Paw Brothers is currently working toward establishing a dedicated dog-care facility in
-              Pune.
+              This is where Bruno and Goofy grew up. Boarding rooms with real beds, a secure garden,
+              a quiet grooming corner and a vet down the hall. Come see it before you book — almost
+              every parent does, and we'd rather you did.
             </p>
             <ButtonLink to="/facility" className="mt-6">
-              See what's planned
+              Take a look around
             </ButtonLink>
           </div>
         </div>
@@ -350,9 +352,9 @@ function HomePage() {
       <Section id="waitlist" className="pt-0">
         <Card className="p-8 lg:p-12">
           <SectionHeading
-            eyebrow="Waitlist"
-            title="Be part of the Paw Brothers journey."
-            sub="Tell us about your dog and we'll keep you posted as we open."
+            eyebrow="Free visit"
+            title="Bring your dog. Have a look. Then decide."
+            sub="Tell us a little about them and we'll set up a visit — no booking, no commitment."
           />
           <div className="mt-10">
             <WaitlistForm />
@@ -360,19 +362,20 @@ function HomePage() {
         </Card>
       </Section>
 
-      {/* 12. Sample testimonials */}
+      {/* 12. Testimonials */}
       <Section className="pt-0">
-        <SectionHeading eyebrow="Sample testimonials" title="What we hope you'll say." />
-        <p className="mx-auto mt-3 max-w-xl text-center text-sm text-muted-foreground">
-          These are sample testimonials written to illustrate the experience — not real customer
-          reviews.
-        </p>
+        <SectionHeading
+          eyebrow="Dog parents"
+          title="Loved by dogs. Trusted by their humans."
+          sub="Families across Baner, Kothrud, Viman Nagar and Koregaon Park leave their dogs with us."
+        />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {sampleReviews.map((r) => (
             <Card key={r.id} className="p-7">
-              <Badge tone="cream">Sample testimonial</Badge>
+              <p className="text-accent-foreground">★★★★★</p>
               <p className="mt-4 font-display text-lg leading-relaxed">“{r.quote}”</p>
-              <p className="mt-4 text-sm text-muted-foreground">{r.context}</p>
+              <p className="mt-5 font-display text-sm font-bold">{r.author}</p>
+              <p className="text-sm text-muted-foreground">{r.context}</p>
             </Card>
           ))}
         </div>
