@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { img } from "@/data/images";
 import { cn } from "@/lib/utils";
@@ -16,9 +16,19 @@ const links = [
   { to: "/about", label: "About" },
 ] as const;
 
+const searchLinks = [
+  ...links,
+  { to: "/book", label: "Book a stay" },
+  { to: "/contact", label: "Contact Paw Brothers" },
+  { to: "/dashboard", label: "Owner dashboard" },
+] as const;
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const matches = searchLinks.filter((link) => link.label.toLowerCase().includes(query.trim().toLowerCase()));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -55,15 +65,22 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            aria-label="Search pages"
+            onClick={() => setSearchOpen(true)}
+            className="grid size-10 shrink-0 place-items-center rounded-full text-foreground transition-colors hover:bg-secondary"
+          >
+            <Search className="size-5" />
+          </button>
           <Link
             to="/bruno"
-            className="hidden rounded-full px-4 py-2.5 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary xl:inline-flex"
+            className="hidden whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary 2xl:inline-flex"
           >
             Meet Bruno &amp; Goofy
           </Link>
           <Link
             to="/book"
-            className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.03] sm:inline-flex"
+            className="hidden whitespace-nowrap rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.03] sm:inline-flex"
           >
             Book a Stay
           </Link>
@@ -108,6 +125,43 @@ export function Navbar() {
               Book a Stay
             </Link>
           </nav>
+        </div>
+      )}
+
+      {searchOpen && (
+        <div className="fixed inset-0 z-[60] bg-foreground/25 p-4 pt-24 backdrop-blur-sm" onClick={() => setSearchOpen(false)}>
+          <div className="mx-auto max-w-lg rounded-2xl border border-border bg-card p-4 shadow-lift" onClick={(event) => event.stopPropagation()}>
+            <div className="flex items-center gap-3 border-b border-border pb-3">
+              <Search className="size-5 text-muted-foreground" />
+              <input
+                autoFocus
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search pages and services"
+                className="w-full bg-transparent text-sm outline-none placeholder:text-muted-foreground"
+              />
+              <button aria-label="Close search" onClick={() => setSearchOpen(false)} className="grid size-8 place-items-center rounded-full hover:bg-secondary">
+                <X className="size-4" />
+              </button>
+            </div>
+            <nav className="mt-3 grid gap-1" aria-label="Search results">
+              {matches.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  activeOptions={{ exact: "exact" in link }}
+                  onClick={() => {
+                    setSearchOpen(false);
+                    setQuery("");
+                  }}
+                  className="rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              {matches.length === 0 && <p className="px-3 py-4 text-sm text-muted-foreground">No matching pages.</p>}
+            </nav>
+          </div>
         </div>
       )}
     </header>
