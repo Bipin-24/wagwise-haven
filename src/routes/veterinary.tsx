@@ -44,17 +44,27 @@ function VeterinaryPage() {
       <Section>
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           {vets.map((v) => (
-            <Card key={v.id} className="p-8">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent-foreground/70">
-                {v.role}
-              </p>
-              <h2 className="mt-2 font-display text-3xl font-bold">{v.name}</h2>
-              <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
-                <li>✓ Qualified veterinarian</li>
-                <li>✓ Postgraduate veterinary education</li>
-                <li>✓ Currently pursuing a PhD in Veterinary Surgery</li>
-              </ul>
-              <p className="mt-5 leading-relaxed text-muted-foreground">{v.bio}</p>
+            <Card key={v.id} className="overflow-hidden">
+              <img
+                src={img.sonal}
+                alt="Dr. Sonal Dixit with a patient"
+                width={800}
+                height={1000}
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover object-top"
+              />
+              <div className="p-8">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent-foreground/70">
+                  {v.role}
+                </p>
+                <h2 className="mt-2 font-display text-3xl font-bold">{v.name}</h2>
+                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
+                  <li>✓ Qualified veterinarian</li>
+                  <li>✓ Postgraduate veterinary education</li>
+                  <li>✓ Currently pursuing a PhD in Veterinary Surgery</li>
+                </ul>
+                <p className="mt-5 leading-relaxed text-muted-foreground">{v.bio}</p>
+              </div>
             </Card>
           ))}
 
@@ -80,6 +90,48 @@ function VeterinaryPage() {
               Get in touch
             </ButtonLink>
           </div>
+        </div>
+      </Section>
+
+      <Section className="pt-0">
+        <SectionHeading
+          eyebrow="Care in practice"
+          title="The Paw Brothers under Sonal's care"
+          sub="A familiar face, careful observation and practical guidance for every dog in our care."
+        />
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <Card className="overflow-hidden">
+            <img
+              src={img.sonalWithGoofy}
+              alt="Dr. Sonal Dixit with Goofy"
+              width={800}
+              height={1000}
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+            <div className="p-6">
+              <h2 className="font-display text-xl font-bold">Goofy</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                A calm check-in, a familiar face and plenty of reassurance.
+              </p>
+            </div>
+          </Card>
+          <Card className="overflow-hidden">
+            <img
+              src={img.sonalWithBruno}
+              alt="Dr. Sonal Dixit with Bruno"
+              width={800}
+              height={1000}
+              loading="lazy"
+              className="aspect-[4/3] w-full object-cover"
+            />
+            <div className="p-6">
+              <h2 className="font-display text-xl font-bold">Bruno</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                Thoughtful care that makes every visit feel safe and personal.
+              </p>
+            </div>
+          </Card>
         </div>
       </Section>
     </>

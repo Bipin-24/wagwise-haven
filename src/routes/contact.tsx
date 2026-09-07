@@ -34,15 +34,19 @@ function ContactPage() {
             <dl className="mt-6 space-y-4 text-sm">
               <div>
                 <dt className="text-muted-foreground">Email</dt>
-                <dd className="font-semibold">hello@pawbrothers.in</dd>
+                <dd className="font-semibold">pawbrothers24@gmail.com</dd>
               </div>
               <div>
-                <dt className="text-muted-foreground">Phone / WhatsApp</dt>
-                <dd className="font-semibold">Message us and we call back the same day</dd>
+                <dt className="text-muted-foreground">Owners</dt>
+                <dd className="font-semibold">Bipin: 9535702274 · Shalini: 7499920533</dd>
+              </div>
+              <div>
+                <dt className="text-muted-foreground">Veterinary Advisor</dt>
+                <dd className="font-semibold">Sonal: 9111821045</dd>
               </div>
               <div>
                 <dt className="text-muted-foreground">Social</dt>
-                <dd className="font-semibold">@pawbrothers.pune on Instagram</dd>
+                <dd className="font-semibold">@paww_brothers on Instagram</dd>
               </div>
             </dl>
             <p className="mt-6 text-xs leading-relaxed text-muted-foreground">

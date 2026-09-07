@@ -83,8 +83,8 @@ function HomePage() {
           <div className="relative">
             <div className="overflow-hidden rounded-[2.5rem] shadow-lift">
               <img
-                src={img.heroRun}
-                alt="A happy dog running at full speed across the Paw Brothers garden in Pune"
+                src={img.family}
+                alt="The Paw Brothers family together at home"
                 width={960}
                 height={1280}
                 className="aspect-[4/5] w-full object-cover sm:aspect-[5/4]"
@@ -179,15 +179,29 @@ function HomePage() {
               title="A day filled with care."
               sub="Structure, rest and attention — the rhythm we plan every stay around."
             />
-            <div className="mt-8 overflow-hidden rounded-[2rem] shadow-soft">
-              <img
-                src={img.goofyTree}
-                alt="Goofy the Golden Retriever sitting outdoors"
-                width={900}
-                height={700}
-                loading="lazy"
-                className="aspect-[5/4] w-full object-cover"
-              />
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <Card className="overflow-hidden">
+                <img
+                  src={img.goofyTree}
+                  alt="Goofy the Golden Retriever sitting outdoors"
+                  width={900}
+                  height={700}
+                  loading="lazy"
+                  className="aspect-[5/4] w-full object-cover"
+                />
+                <p className="p-4 font-display font-bold">Goofy</p>
+              </Card>
+              <Card className="overflow-hidden">
+                <img
+                  src={img.brunoSit}
+                  alt="Bruno the German Shepherd relaxing at home"
+                  width={900}
+                  height={700}
+                  loading="lazy"
+                  className="aspect-[5/4] w-full object-cover"
+                />
+                <p className="p-4 font-display font-bold">Bruno</p>
+              </Card>
             </div>
           </div>
           <Card className="p-8">

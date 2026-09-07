@@ -28,7 +28,7 @@ function AboutPage() {
         eyebrow={`${brand.city} • Open today`}
         title="Paw Brothers started with two dogs."
         sub="We're dog parents ourselves. Bruno and Goofy are part of our family, and caring for them helped us understand how difficult it can be to find trusted care when life takes us away from our dogs."
-        image={img.brothers}
+        image={img.heroRun}
       />
 
       <Section>
@@ -51,12 +51,22 @@ function AboutPage() {
 
       <Section className="pt-0">
         <SectionHeading eyebrow="Our team" title="Meet the people behind Paw Brothers" />
-        <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
+        <div className="mx-auto mt-10 grid max-w-6xl gap-6 md:grid-cols-3">
           {founders.map((f) => (
-            <Card key={f.id} className="p-7">
-              <h3 className="font-display text-xl font-bold">{f.name}</h3>
-              <p className="mt-1 text-sm font-medium text-primary">{f.role}</p>
-              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{f.bio}</p>
+            <Card key={f.id} className="overflow-hidden">
+              <img
+                src={f.photo}
+                alt={f.name}
+                width={800}
+                height={480}
+                loading="lazy"
+                className="aspect-[5/3] w-full object-cover"
+              />
+              <div className="p-7">
+                <h3 className="font-display text-xl font-bold">{f.name}</h3>
+                <p className="mt-1 text-sm font-medium text-primary">{f.role}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{f.bio}</p>
+              </div>
             </Card>
           ))}
         </div>

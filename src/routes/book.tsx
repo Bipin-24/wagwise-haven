@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
-import { dogs, services, inr } from "@/data/mock";
+import { services, inr } from "@/data/mock";
 import { createBooking } from "@/services/api";
 import { Card, PageHero, Section } from "@/components/ui-kit";
 import { cn } from "@/lib/utils";
@@ -32,12 +32,46 @@ function BookPage() {
   const [service, setService] = useState(bookable[0]?.slug ?? "boarding");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-  const [dog, setDog] = useState(dogs[0]?.name ?? "");
+  const [dog, setDog] = useState("");
+  const [customer, setCustomer] = useState({ name: "", email: "", phone: "" });
   const [notes, setNotes] = useState({ food: "", walks: "", medication: "", behaviour: "", emergency: "", special: "" });
 
   const serviceName = bookable.find((s) => s.slug === service)?.name ?? service;
   const pill = (active: boolean) =>
     cn("rounded-full px-4 py-2.5 text-sm font-medium transition-colors", active ? "bg-primary text-primary-foreground" : "bg-secondary hover:bg-muted");
+
+  const continueBooking = async () => {
+    if (step === 1 && (!start || !end || end < start)) {
+      toast.error("Choose valid start and end dates.");
+      return;
+    }
+
+    if (step === 2 && (!dog || !customer.name.trim() || !customer.email.trim() || !customer.phone.trim())) {
+      toast.error("Add your name, email and mobile number.");
+      return;
+    }
+
+    if (step === 4) {
+      try {
+        await createBooking({
+          customerName: customer.name.trim(),
+          customerEmail: customer.email.trim(),
+          customerPhone: customer.phone.trim(),
+          service,
+          start,
+          end,
+          dog,
+          notes,
+        });
+        toast.success("Booking request recorded");
+      } catch (error) {
+        toast.error(error instanceof Error ? error.message : "Could not submit your request.");
+        return;
+      }
+    }
+
+    setStep(step + 1);
+  };
 
   return (
     <>
@@ -77,11 +111,12 @@ function BookPage() {
 
           {step === 2 && (
             <div>
-              <h2 className="font-display text-2xl font-bold">Choose your dog</h2>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {[...dogs.map((d) => d.name), "Other dog"].map((d) => (
-                  <button key={d} onClick={() => setDog(d)} className={pill(dog === d)}>{d}</button>
-                ))}
+              <h2 className="font-display text-2xl font-bold">Tell us about your dog</h2>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <input required placeholder="Your dog's name" value={dog} onChange={(e) => setDog(e.target.value)} className={cn(field, "sm:col-span-2")} />
+                <input required placeholder="Your name" value={customer.name} onChange={(e) => setCustomer({ ...customer, name: e.target.value })} className={field} />
+                <input required type="tel" placeholder="Mobile number" value={customer.phone} onChange={(e) => setCustomer({ ...customer, phone: e.target.value })} className={field} />
+                <input required type="email" placeholder="Email address" value={customer.email} onChange={(e) => setCustomer({ ...customer, email: e.target.value })} className={cn(field, "sm:col-span-2")} />
               </div>
             </div>
           )}
@@ -106,7 +141,15 @@ function BookPage() {
             <div>
               <h2 className="font-display text-2xl font-bold">Review</h2>
               <dl className="mt-5 space-y-3 text-sm">
-                {[["Dog", dog], ["Service", serviceName], ["Dates", [start, end].filter(Boolean).join(" – ") || "To confirm"], ["Care instructions", Object.values(notes).filter(Boolean).join(" · ") || "None added"], ["Estimated price", `${inr(899)} per night`]].map(([k, v]) => (
+                {[
+                  ["Name", customer.name],
+                  ["Phone", customer.phone],
+                  ["Dog", dog],
+                  ["Service", serviceName],
+                  ["Dates", [start, end].filter(Boolean).join(" – ") || "To confirm"],
+                  ["Care instructions", Object.values(notes).filter(Boolean).join(" · ") || "None added"],
+                  ["Estimated price", `${inr(899)} per night`],
+                ].map(([k, v]) => (
                   <div key={k} className="flex justify-between gap-6 border-b border-border pb-3">
                     <dt className="text-muted-foreground">{k}</dt>
                     <dd className="text-right font-semibold">{v}</dd>
@@ -130,13 +173,7 @@ function BookPage() {
                 <button onClick={() => setStep(step - 1)} className="rounded-full border border-border px-6 py-3 text-sm font-semibold">Back</button>
               )}
               <button
-                onClick={async () => {
-                  if (step === 4) {
-                    await createBooking({ service, start, end, dog, notes });
-                    toast.success("Booking request recorded");
-                  }
-                  setStep(step + 1);
-                }}
+                onClick={continueBooking}
                 className="flex-1 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground"
               >
                 {step === 4 ? "Confirm request" : "Continue"}

@@ -51,7 +51,14 @@ export const dogs: Dog[] = [
     gender: "Male",
     ownerId: "own_1",
     photo: img.brunoSit,
-    gallery: [img.brunoSit, img.brunoSofa, img.brunoBalcony, img.brunoRest, img.brothers],
+    gallery: [
+      img.brunoSit,
+      img.brunoSofa,
+      img.brunoBalcony,
+      img.brunoRest,
+      img.brothersAtPlay,
+      img.brothersInRain,
+    ],
     about:
       "Smart, loyal, energetic and always watching over his family. Bruno learns fast, notices everything and takes his job as house supervisor very seriously.",
     personality: ["Intelligent", "Loyal", "Protective", "Energetic", "Confident", "Curious"],
@@ -77,7 +84,14 @@ export const dogs: Dog[] = [
     gender: "Male",
     ownerId: "own_1",
     photo: img.goofyGarden,
-    gallery: [img.goofyGarden, img.goofyTree, img.goofyParent, img.brothers],
+    gallery: [
+      img.goofyGarden,
+      img.goofyTree,
+      img.goofyParent,
+      img.brothersAtHome,
+      img.brothersAtCare,
+      img.brothersAtPlay,
+    ],
     about:
       "Playful, loving and convinced everyone is his best friend. Goofy greets the world tail-first and turns every walk into a social event.",
     personality: ["Friendly", "Loving", "Playful", "Gentle", "Happy", "Social"],
@@ -142,7 +156,7 @@ export const services: Service[] = [
     description:
       "Reward-based programmes shaped around your dog's age, breed and personality — and around the humans they live with.",
     status: "available",
-    heroImage: img.brunoSit,
+    heroImage: img.brunoBalcony,
     cardImage: img.brunoBalcony,
     features: ["Puppy training", "Obedience", "Behaviour", "Socialization", "Advanced training", "Progress notes"],
     ctaLabel: "Explore Training",
@@ -173,7 +187,7 @@ export const services: Service[] = [
       "Low-stress grooming at a pace your dog is comfortable with — bath, brush, coat, nails and ears.",
     status: "available",
     heroImage: img.goofyTree,
-    cardImage: img.goofyGarden,
+    cardImage: img.brothersAtHome,
     features: ["Bath", "Brush", "Coat care", "Nail care", "Ear cleaning", "Calm handling"],
     ctaLabel: "Explore Grooming",
   },
@@ -418,6 +432,13 @@ export const founders = [
   },
   {
     id: "team_2",
+    name: "Shalini Dixit",
+    role: "Founder",
+    bio: "Shalini Dixit is a dog parent and co-founder of Paw Brothers. Together with Bipin, she is building a warm, dependable home-away-from-home for dogs and the people who love them.",
+    photo: img.family,
+  },
+  {
+    id: "team_3",
     name: "Sonal Dixit",
     role: "Veterinary Advisor",
     bio: "Sonal Dixit is a qualified veterinarian with undergraduate and postgraduate veterinary education and is currently pursuing a PhD in Veterinary Surgery.",
