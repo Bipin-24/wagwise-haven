@@ -27,7 +27,7 @@ export const brand = {
   tagline: "Built by dog parents, for dog parents.",
   message: "Because every dog deserves family-level care.",
   city: "Pune, Maharashtra",
-  status: "Pune • Coming Soon",
+  status: "Pune • Now taking bookings",
 };
 
 export const owner: Owner = {
@@ -104,7 +104,7 @@ export const services: Service[] = [
     tagline: "Your dog's second home while you're away.",
     description:
       "Comfortable stays with supervised care, exercise, feeding to your instructions and daily updates so you always know how your dog is doing.",
-    status: "coming-soon",
+    status: "available",
     heroImage: img.boarding,
     cardImage: img.boarding,
     features: [
@@ -126,7 +126,7 @@ export const services: Service[] = [
     tagline: "A safe place to play, socialize and relax.",
     description:
       "Structured play, quiet rest time and supervision through the day for dogs whose humans are at work.",
-    status: "coming-soon",
+    status: "available",
     heroImage: img.daycare,
     cardImage: img.daycare,
     features: ["Supervised play", "Rest periods", "Socialisation groups", "Feeding on your schedule", "Pick-up and drop-off windows", "End-of-day summary"],
@@ -141,7 +141,7 @@ export const services: Service[] = [
     tagline: "Better communication. Better habits. Stronger bonds.",
     description:
       "Reward-based programmes shaped around your dog's age, breed and personality — and around the humans they live with.",
-    status: "coming-soon",
+    status: "available",
     heroImage: img.training,
     cardImage: img.training,
     features: ["Puppy training", "Obedience", "Behaviour", "Socialization", "Advanced training", "Progress notes"],
@@ -156,7 +156,7 @@ export const services: Service[] = [
     tagline: "Professional veterinary expertise at the heart of responsible care.",
     description:
       "Veterinary knowledge guides how we plan care, keep records and respond to health questions.",
-    status: "coming-soon",
+    status: "available",
     heroImage: img.vet,
     cardImage: img.vet,
     features: ["General consultation", "Preventive care", "Health guidance", "Medical record review", "Follow-up care"],
@@ -171,7 +171,7 @@ export const services: Service[] = [
     tagline: "Gentle, thoughtful grooming for happy dogs.",
     description:
       "Low-stress grooming at a pace your dog is comfortable with — bath, brush, coat, nails and ears.",
-    status: "coming-soon",
+    status: "available",
     heroImage: img.grooming,
     cardImage: img.grooming,
     features: ["Bath", "Brush", "Coat care", "Nail care", "Ear cleaning", "Calm handling"],
@@ -186,7 +186,7 @@ export const services: Service[] = [
     tagline: "Thoughtfully selected food and nutrition options.",
     description:
       "A carefully chosen range of meals, treats and nutrition products for dogs at every life stage.",
-    status: "coming-soon",
+    status: "available",
     heroImage: img.food,
     cardImage: img.food,
     features: ["Natural meals", "Treats", "Healthy snacks", "Puppy food", "Adult food", "Nutrition products"],
@@ -201,7 +201,7 @@ export const pricingPlans: PricingPlan[] = [
     name: "Day Stay",
     price: 700,
     unit: "day",
-    note: "Demo pricing — final pricing coming soon",
+    note: "All-inclusive · GST extra",
     includes: ["Supervised care", "Two walks", "Feeding as instructed", "Photo update"],
   },
   {
@@ -210,7 +210,7 @@ export const pricingPlans: PricingPlan[] = [
     name: "Overnight Stay",
     price: 1100,
     unit: "night",
-    note: "Demo pricing — final pricing coming soon",
+    note: "All-inclusive · GST extra",
     includes: ["Comfortable rest area", "Three walks", "Feeding as instructed", "Daily updates", "Individual care plan"],
     highlighted: true,
   },
@@ -220,7 +220,7 @@ export const pricingPlans: PricingPlan[] = [
     name: "Extended Stay",
     price: 6800,
     unit: "week",
-    note: "Demo pricing — final pricing coming soon",
+    note: "All-inclusive · GST extra",
     includes: ["Everything in Overnight", "Weekly grooming touch-up", "Enrichment sessions", "Detailed stay report"],
   },
   {
@@ -229,7 +229,7 @@ export const pricingPlans: PricingPlan[] = [
     name: "Full Day",
     price: 600,
     unit: "day",
-    note: "Demo pricing — final pricing coming soon",
+    note: "All-inclusive · GST extra",
     includes: ["Supervised play", "Rest time", "Meal service", "Day summary"],
     highlighted: true,
   },
@@ -239,7 +239,7 @@ export const pricingPlans: PricingPlan[] = [
     name: "Half Day",
     price: 350,
     unit: "half day",
-    note: "Demo pricing — final pricing coming soon",
+    note: "All-inclusive · GST extra",
     includes: ["Supervised play", "Rest time", "Day summary"],
   },
 ];
@@ -356,17 +356,17 @@ export const dayTimeline = [
 export const facility: Facility = {
   id: "fac_1",
   city: "Pune",
-  status: "planned",
+  status: "operational",
   areas: [
-    { emoji: "🏡", name: "Boarding", detail: "Comfortable, home-style stay areas.", status: "planned" },
-    { emoji: "🌳", name: "Outdoor play", detail: "Secure open space for supervised play.", status: "planned" },
-    { emoji: "🐕", name: "Activity areas", detail: "Enrichment and structured group play.", status: "planned" },
-    { emoji: "🛏️", name: "Rest areas", detail: "Quiet zones for proper sleep.", status: "planned" },
-    { emoji: "🎓", name: "Training", detail: "A dedicated space for sessions.", status: "planned" },
-    { emoji: "✂️", name: "Grooming", detail: "Calm, low-stress grooming setup.", status: "planned" },
-    { emoji: "🩺", name: "Veterinary support", detail: "Veterinary expertise built into care.", status: "coming-soon" },
-    { emoji: "🥣", name: "Feeding", detail: "Individual meal plans and storage.", status: "planned" },
-    { emoji: "📹", name: "Care updates", detail: "Photo and activity updates for parents.", status: "planned" },
+    { emoji: "🏡", name: "Boarding", detail: "Comfortable, home-style stay areas.", status: "available" },
+    { emoji: "🌳", name: "Outdoor play", detail: "Secure open space for supervised play.", status: "available" },
+    { emoji: "🐕", name: "Activity areas", detail: "Enrichment and structured group play.", status: "available" },
+    { emoji: "🛏️", name: "Rest areas", detail: "Quiet zones for proper sleep.", status: "available" },
+    { emoji: "🎓", name: "Training", detail: "A dedicated space for sessions.", status: "available" },
+    { emoji: "✂️", name: "Grooming", detail: "Calm, low-stress grooming setup.", status: "available" },
+    { emoji: "🩺", name: "Veterinary support", detail: "Veterinary expertise built into care.", status: "available" },
+    { emoji: "🥣", name: "Feeding", detail: "Individual meal plans and storage.", status: "available" },
+    { emoji: "📹", name: "Care updates", detail: "Photo and activity updates for parents.", status: "available" },
   ],
 };
 
@@ -382,12 +382,12 @@ export const rooms: Room[] = [
 ];
 
 export const foodProducts: FoodProduct[] = [
-  { id: "fp_1", name: "Everyday Fresh Bowl", category: "Natural meals", description: "A balanced fresh meal option for adult dogs.", price: 640, image: img.productFresh, status: "coming-soon" },
-  { id: "fp_2", name: "Puppy Starter Meal", category: "Puppy food", description: "Portioned meals designed for growing pups.", price: 720, image: img.productPack, status: "coming-soon" },
-  { id: "fp_3", name: "Training Treats", category: "Treats", description: "Small, soft treats made for reward-based training.", price: 320, image: img.productTreats, status: "coming-soon" },
-  { id: "fp_4", name: "Adult Daily Meal", category: "Adult food", description: "An everyday option for adult dogs.", price: 690, image: img.productFresh, status: "coming-soon" },
-  { id: "fp_5", name: "Crunchy Snacks", category: "Healthy snacks", description: "Simple, single-ingredient snacks.", price: 280, image: img.productTreats, status: "coming-soon" },
-  { id: "fp_6", name: "Coat & Skin Support", category: "Nutrition products", description: "A supplement option to discuss with your vet.", price: 480, image: img.productPack, status: "coming-soon" },
+  { id: "fp_1", name: "Everyday Fresh Bowl", category: "Natural meals", description: "A balanced fresh meal option for adult dogs.", price: 640, image: img.productFresh, status: "available" },
+  { id: "fp_2", name: "Puppy Starter Meal", category: "Puppy food", description: "Portioned meals designed for growing pups.", price: 720, image: img.productPack, status: "available" },
+  { id: "fp_3", name: "Training Treats", category: "Treats", description: "Small, soft treats made for reward-based training.", price: 320, image: img.productTreats, status: "available" },
+  { id: "fp_4", name: "Adult Daily Meal", category: "Adult food", description: "An everyday option for adult dogs.", price: 690, image: img.productFresh, status: "available" },
+  { id: "fp_5", name: "Crunchy Snacks", category: "Healthy snacks", description: "Simple, single-ingredient snacks.", price: 280, image: img.productTreats, status: "available" },
+  { id: "fp_6", name: "Coat & Skin Support", category: "Nutrition products", description: "A supplement option to discuss with your vet.", price: 480, image: img.productPack, status: "available" },
 ];
 
 export const foodCategories = [
