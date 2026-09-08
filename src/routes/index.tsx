@@ -165,14 +165,45 @@ function HomePage() {
                 </div>
                 <p className="mt-2 font-medium">{s.tagline}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
-                <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                  {s.ctaLabel} <ArrowRight className="size-4" />
-                </p>
+                <div className="mt-4 flex items-center justify-between gap-3">
+                  <p className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                    {s.ctaLabel} <ArrowRight className="size-4" />
+                  </p>
+                  {startingPrices[s.slug] ? (
+                    <span className="font-display text-sm font-bold">{startingPrices[s.slug]}</span>
+                  ) : null}
+                </div>
               </div>
             </Link>
           ))}
         </div>
       </Section>
+
+      {/* 5b. Safety */}
+      <Section className="pt-0">
+        <SectionHeading
+          eyebrow="Safety"
+          title="How we keep your dog safe."
+          sub="The questions every dog parent asks before handing over the leash — answered plainly."
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {safetyPoints.map((p) => (
+            <Card key={p.title} hover className="p-7">
+              <span className="text-2xl">{p.emoji}</span>
+              <h3 className="mt-3 font-display text-lg font-bold">{p.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+            </Card>
+          ))}
+        </div>
+        <Card className="mt-8 border-primary/20 bg-secondary/60 p-8 text-center">
+          <p className="mx-auto max-w-3xl font-display text-xl font-bold leading-relaxed sm:text-2xl">
+            “Your dog plays with <span className="text-primary">our</span> dogs, eats in our kitchen
+            and sleeps where Bruno and Goofy sleep. That's how sure we are about the care here.”
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">Bipin &amp; Shalini · Owners</p>
+        </Card>
+      </Section>
+
 
       {/* 6. A day at Paw Brothers */}
       <Section className="pt-0">
