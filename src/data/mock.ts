@@ -502,3 +502,73 @@ export const journeyCards = [
 ];
 
 export const inr = (n: number) => `₹${n.toLocaleString("en-IN")}`;
+
+/** Starting prices shown on service cards, so parents see honest numbers up front. */
+export const startingPrices: Record<string, string> = {
+  boarding: "from ₹700/day",
+  daycare: "from ₹600/day",
+  training: "from ₹1,250/session",
+  veterinary: "from ₹500/consult",
+  grooming: "from ₹900/session",
+  food: "from ₹450/pack",
+};
+
+export const safetyPoints = [
+  {
+    emoji: "🔒",
+    title: "Secure, escape-proof space",
+    body: "Fenced garden, latched gates and no unsupervised time outdoors. Dogs are never left alone in the open.",
+  },
+  {
+    emoji: "🩺",
+    title: "A vet on call, always",
+    body: "Dr. Sonal Dixit lives and works with us. Any limp, upset stomach or off day is looked at the same hour — not the next day.",
+  },
+  {
+    emoji: "🐕",
+    title: "Grouped by size & temperament",
+    body: "Small and large dogs play separately. Nervous or reactive dogs get their own quiet routine and one-to-one time.",
+  },
+  {
+    emoji: "💉",
+    title: "Vaccination is non-negotiable",
+    body: "Every guest needs current rabies and DHPPi plus a recent deworming. We check records before the first stay.",
+  },
+  {
+    emoji: "📸",
+    title: "You see them every day",
+    body: "Photos and a short note on how they ate, slept and played — sent on WhatsApp so you never have to ask.",
+  },
+  {
+    emoji: "🏡",
+    title: "Home, not kennels",
+    body: "Real beds, sofas, fans and floor space. Only a handful of dogs at a time, so nobody is a number.",
+  },
+];
+
+export const faqs = [
+  {
+    q: "What should I bring for my dog's stay?",
+    a: "Their usual food for the length of the stay, any medication with instructions, and one item that smells of home — a blanket or toy. Bowls, beds and treats are ours.",
+  },
+  {
+    q: "What vaccinations do you require?",
+    a: "Current rabies and DHPPi, plus deworming within the last three months. Bring the vaccination card on your first visit and we'll add it to your dog's Paw Profile.",
+  },
+  {
+    q: "What are the pick-up and drop timings?",
+    a: "8 am to 8 pm, every day. Odd hours because of a flight? Tell us in advance and we'll work around it.",
+  },
+  {
+    q: "What happens if my dog falls ill?",
+    a: "Dr. Sonal sees them immediately and we call you straight away. For anything beyond in-house care we go to our partner clinic and keep you on the phone the whole time.",
+  },
+  {
+    q: "Will my dog be around your dogs?",
+    a: "If they're comfortable with other dogs, yes — Bruno and Goofy are part of daily life here. Dogs who prefer their own space get exactly that.",
+  },
+  {
+    q: "Can I visit before booking?",
+    a: "Please do. Bring your dog, take twenty minutes, meet everyone. Almost every parent visits first and we'd rather you did too.",
+  },
+];
