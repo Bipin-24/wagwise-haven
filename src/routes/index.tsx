@@ -5,12 +5,16 @@ import {
   brand,
   dayTimeline,
   dogs,
+  faqs,
   journeyCards,
+  safetyPoints,
   sampleReviews,
   services,
+  startingPrices,
   trustStrip,
   whyCards,
 } from "@/data/mock";
+
 import {
   Badge,
   ButtonLink,
@@ -49,6 +53,8 @@ export const Route = createFileRoute("/")({
           description,
           areaServed: "Pune, Maharashtra, India",
           slogan: "Built by dog parents, for dog parents.",
+          email: "pawbrothers24@gmail.com",
+          telephone: "+919535702274",
         }),
       },
     ],
@@ -83,8 +89,8 @@ function HomePage() {
           <div className="relative">
             <div className="overflow-hidden rounded-[2.5rem] shadow-lift">
               <img
-                src={img.family}
-                alt="The Paw Brothers family together at home"
+                src={img.heroRun}
+                alt="Bruno and Goofy running together in the garden"
                 width={960}
                 height={1280}
                 className="aspect-[4/5] w-full object-cover sm:aspect-[5/4]"
@@ -97,6 +103,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* 3. Trust strip */}
       <div className="border-y border-border bg-secondary/50">
@@ -160,14 +167,45 @@ function HomePage() {
                 </div>
                 <p className="mt-2 font-medium">{s.tagline}</p>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
-                <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-                  {s.ctaLabel} <ArrowRight className="size-4" />
-                </p>
+                <div className="mt-4 flex items-center justify-between gap-3">
+                  <p className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+                    {s.ctaLabel} <ArrowRight className="size-4" />
+                  </p>
+                  {startingPrices[s.slug] ? (
+                    <span className="font-display text-sm font-bold">{startingPrices[s.slug]}</span>
+                  ) : null}
+                </div>
               </div>
             </Link>
           ))}
         </div>
       </Section>
+
+      {/* 5b. Safety */}
+      <Section className="pt-0">
+        <SectionHeading
+          eyebrow="Safety"
+          title="How we keep your dog safe."
+          sub="The questions every dog parent asks before handing over the leash — answered plainly."
+        />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {safetyPoints.map((p) => (
+            <Card key={p.title} hover className="p-7">
+              <span className="text-2xl">{p.emoji}</span>
+              <h3 className="mt-3 font-display text-lg font-bold">{p.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
+            </Card>
+          ))}
+        </div>
+        <Card className="mt-8 border-primary/20 bg-secondary/60 p-8 text-center">
+          <p className="mx-auto max-w-3xl font-display text-xl font-bold leading-relaxed sm:text-2xl">
+            “Your dog plays with <span className="text-primary">our</span> dogs, eats in our kitchen
+            and sleeps where Bruno and Goofy sleep. That's how sure we are about the care here.”
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground">Bipin &amp; Shalini · Owners</p>
+        </Card>
+      </Section>
+
 
       {/* 6. A day at Paw Brothers */}
       <Section className="pt-0">
@@ -395,7 +433,54 @@ function HomePage() {
         </div>
       </Section>
 
+      {/* 12b. FAQs */}
+      <Section className="pt-0">
+        <SectionHeading
+          eyebrow="Good to know"
+          title="Questions dog parents ask us."
+          sub="Anything else, just call — we pick up ourselves."
+        />
+        <div className="mx-auto mt-10 grid max-w-4xl gap-4">
+          {faqs.map((f) => (
+            <details
+              key={f.q}
+              className="group rounded-2xl border border-border bg-card p-6 shadow-soft transition-shadow open:shadow-lift"
+            >
+              <summary className="cursor-pointer list-none font-display text-lg font-bold marker:hidden">
+                <span className="flex items-start justify-between gap-4">
+                  {f.q}
+                  <span className="mt-1 shrink-0 text-primary transition-transform group-open:rotate-45">+</span>
+                </span>
+              </summary>
+              <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <Card className="mx-auto mt-8 grid max-w-4xl gap-4 p-7 sm:grid-cols-3">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Bipin · Owner</p>
+            <a href="tel:+919535702274" className="font-display text-lg font-bold hover:text-primary">9535702274</a>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Shalini · Owner</p>
+            <a href="tel:+917499920533" className="font-display text-lg font-bold hover:text-primary">7499920533</a>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Dr. Sonal Dixit · Vet</p>
+            <a href="tel:+919111821045" className="font-display text-lg font-bold hover:text-primary">9111821045</a>
+          </div>
+          <p className="sm:col-span-3 text-sm text-muted-foreground">
+            Or email{" "}
+            <a href="mailto:pawbrothers24@gmail.com" className="font-semibold text-primary">
+              pawbrothers24@gmail.com
+            </a>{" "}
+            — we reply the same day.
+          </p>
+        </Card>
+      </Section>
+
       {/* 13. Final CTA */}
+
       <Section className="pt-0">
         <div className="rounded-[2.5rem] bg-primary px-8 py-14 text-center text-primary-foreground lg:px-16 lg:py-20">
           <h2 className="text-balance font-display text-3xl font-extrabold sm:text-4xl">
