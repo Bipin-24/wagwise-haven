@@ -431,7 +431,54 @@ function HomePage() {
         </div>
       </Section>
 
+      {/* 12b. FAQs */}
+      <Section className="pt-0">
+        <SectionHeading
+          eyebrow="Good to know"
+          title="Questions dog parents ask us."
+          sub="Anything else, just call — we pick up ourselves."
+        />
+        <div className="mx-auto mt-10 grid max-w-4xl gap-4">
+          {faqs.map((f) => (
+            <details
+              key={f.q}
+              className="group rounded-2xl border border-border bg-card p-6 shadow-soft transition-shadow open:shadow-lift"
+            >
+              <summary className="cursor-pointer list-none font-display text-lg font-bold marker:hidden">
+                <span className="flex items-start justify-between gap-4">
+                  {f.q}
+                  <span className="mt-1 shrink-0 text-primary transition-transform group-open:rotate-45">+</span>
+                </span>
+              </summary>
+              <p className="mt-3 leading-relaxed text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <Card className="mx-auto mt-8 grid max-w-4xl gap-4 p-7 sm:grid-cols-3">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Bipin · Owner</p>
+            <a href="tel:+919535702274" className="font-display text-lg font-bold hover:text-primary">9535702274</a>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Shalini · Owner</p>
+            <a href="tel:+917499920533" className="font-display text-lg font-bold hover:text-primary">7499920533</a>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Dr. Sonal Dixit · Vet</p>
+            <a href="tel:+919111821045" className="font-display text-lg font-bold hover:text-primary">9111821045</a>
+          </div>
+          <p className="sm:col-span-3 text-sm text-muted-foreground">
+            Or email{" "}
+            <a href="mailto:pawbrothers24@gmail.com" className="font-semibold text-primary">
+              pawbrothers24@gmail.com
+            </a>{" "}
+            — we reply the same day.
+          </p>
+        </Card>
+      </Section>
+
       {/* 13. Final CTA */}
+
       <Section className="pt-0">
         <div className="rounded-[2.5rem] bg-primary px-8 py-14 text-center text-primary-foreground lg:px-16 lg:py-20">
           <h2 className="text-balance font-display text-3xl font-extrabold sm:text-4xl">
