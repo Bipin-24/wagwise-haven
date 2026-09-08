@@ -26,6 +26,8 @@ import {
   Timeline,
 } from "@/components/ui-kit";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { CountUp, Reveal } from "@/components/Reveal";
+import { StickyBookBar } from "@/components/StickyBookBar";
 
 const title = "Paw Brothers — Dog boarding, daycare & training in Pune";
 const description =
