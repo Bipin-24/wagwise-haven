@@ -26,7 +26,7 @@ import {
   Timeline,
 } from "@/components/ui-kit";
 import { WaitlistForm } from "@/components/WaitlistForm";
-import { CountUp, Reveal } from "@/components/Reveal";
+import { Reveal } from "@/components/Reveal";
 import { StickyBookBar } from "@/components/StickyBookBar";
 
 const title = "Paw Brothers — Dog boarding, daycare & training in Pune";
@@ -64,22 +64,11 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const marqueePhotos = [
-  { src: img.brothersAtPlay, alt: "Bruno and Goofy playing together" },
-  { src: img.goofyGarden, alt: "Goofy in the garden" },
-  { src: img.brunoSofa, alt: "Bruno resting indoors" },
-  { src: img.brothersAtCare, alt: "Bruno and Goofy being cared for" },
-  { src: img.heroBall, alt: "A dog chasing a ball" },
-  { src: img.brothersInRain, alt: "Bruno and Goofy in the rain" },
-  { src: img.goofyTree, alt: "Goofy sitting outdoors" },
-  { src: img.heroPlay, alt: "Dogs playing in the secure garden" },
-];
-
 const heroStats = [
-  { value: 8, suffix: "+", label: "Years living with dogs" },
-  { value: 6, suffix: " days", label: "Open every week" },
-  { value: 24, suffix: "/7", label: "Vet reachable" },
-  { value: 100, suffix: "%", label: "Home, never cages" },
+  { value: "8+", label: "Years living with dogs" },
+  { value: "2", label: "Our own dogs, living here" },
+  { value: "1", label: "Vet in the family, on call" },
+  { value: "0", label: "Cages in the house" },
 ];
 
 function HomePage() {
