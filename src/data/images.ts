@@ -8,7 +8,7 @@ import goofyTree from "@/assets/gen/goofy-tree.jpg";
 import heroRun from "@/assets/gen/hero-run.jpg";
 import heroBall from "@/assets/gen/hero-ball.jpg";
 import heroPlay from "@/assets/gen/hero-play.jpg";
-import family from "@/assets/gen/family.JPG";
+import family from "@/assets/gen/family.jpg";
 import brunoThree from "@/assets/gen/bruno3.jpeg";
 import brothersAtHome from "@/assets/gen/goofybruno1.jpeg";
 import brothersAtCare from "@/assets/gen/goofybruno2.jpeg";
