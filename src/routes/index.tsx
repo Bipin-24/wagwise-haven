@@ -617,6 +617,8 @@ function HomePage() {
           </div>
         </div>
       </Section>
+
+      <StickyBookBar />
     </>
   );
 }
