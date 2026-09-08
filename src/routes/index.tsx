@@ -138,12 +138,6 @@ function HomePage() {
               <p className="font-display text-sm font-bold">Bruno &amp; Goofy</p>
               <p className="text-xs text-muted-foreground">The Paw Brothers</p>
             </div>
-            <div className="absolute -right-2 top-6 hidden rounded-2xl bg-card px-4 py-3 text-left shadow-lift sm:block">
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Boarding from
-              </p>
-              <p className="font-display text-xl font-extrabold">₹600 / night</p>
-            </div>
           </div>
         </div>
       </section>
