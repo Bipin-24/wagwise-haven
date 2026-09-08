@@ -94,7 +94,7 @@ export function Footer() {
             <li className="flex items-start gap-2">
               <Phone className="mt-0.5 size-4 shrink-0" />
               <span>
-                Shalini, Owner: <a href="tel:+917499920533" className="transition-colors hover:text-primary-foreground">7499920533</a>
+                Shalini, Owner: <a href="tel:+917499930533" className="transition-colors hover:text-primary-foreground">7499930533</a>
               </span>
             </li>
             <li className="flex items-start gap-2">

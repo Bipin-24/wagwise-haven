@@ -84,6 +84,9 @@ function HomePage() {
               <ButtonLink to="/bruno" variant="outline">
                 Meet Bruno &amp; Goofy
               </ButtonLink>
+              <ButtonLink to="/my-pets" variant="outline">
+                Create your dog&apos;s profile
+              </ButtonLink>
             </div>
           </div>
           <div className="relative">
@@ -463,7 +466,7 @@ function HomePage() {
           </div>
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Shalini · Owner</p>
-            <a href="tel:+917499920533" className="font-display text-lg font-bold hover:text-primary">7499920533</a>
+            <a href="tel:+917499930533" className="font-display text-lg font-bold hover:text-primary">7499930533</a>
           </div>
           <div>
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Dr. Sonal Dixit · Vet</p>

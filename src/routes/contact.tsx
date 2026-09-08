@@ -38,7 +38,7 @@ function ContactPage() {
               </div>
               <div>
                 <dt className="text-muted-foreground">Owners</dt>
-                <dd className="font-semibold">Bipin: 9535702274 · Shalini: 7499920533</dd>
+                <dd className="font-semibold">Bipin: 9535702274 · Shalini: 7499930533</dd>
               </div>
               <div>
                 <dt className="text-muted-foreground">Veterinary Advisor</dt>
