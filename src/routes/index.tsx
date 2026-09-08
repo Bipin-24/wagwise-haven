@@ -87,8 +87,8 @@ function HomePage() {
           <div className="relative">
             <div className="overflow-hidden rounded-[2.5rem] shadow-lift">
               <img
-                src={img.family}
-                alt="The Paw Brothers family together at home"
+                src={img.heroRun}
+                alt="Bruno and Goofy running together in the garden"
                 width={960}
                 height={1280}
                 className="aspect-[4/5] w-full object-cover sm:aspect-[5/4]"
@@ -101,6 +101,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* 3. Trust strip */}
       <div className="border-y border-border bg-secondary/50">
