@@ -26,7 +26,7 @@ import {
   Timeline,
 } from "@/components/ui-kit";
 import { WaitlistForm } from "@/components/WaitlistForm";
-import { CountUp, Reveal } from "@/components/Reveal";
+import { Reveal } from "@/components/Reveal";
 import { StickyBookBar } from "@/components/StickyBookBar";
 
 const title = "Paw Brothers — Dog boarding, daycare & training in Pune";
@@ -64,22 +64,11 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const marqueePhotos = [
-  { src: img.brothersAtPlay, alt: "Bruno and Goofy playing together" },
-  { src: img.goofyGarden, alt: "Goofy in the garden" },
-  { src: img.brunoSofa, alt: "Bruno resting indoors" },
-  { src: img.brothersAtCare, alt: "Bruno and Goofy being cared for" },
-  { src: img.heroBall, alt: "A dog chasing a ball" },
-  { src: img.brothersInRain, alt: "Bruno and Goofy in the rain" },
-  { src: img.goofyTree, alt: "Goofy sitting outdoors" },
-  { src: img.heroPlay, alt: "Dogs playing in the secure garden" },
-];
-
 const heroStats = [
-  { value: 8, suffix: "+", label: "Years living with dogs" },
-  { value: 6, suffix: " days", label: "Open every week" },
-  { value: 24, suffix: "/7", label: "Vet reachable" },
-  { value: 100, suffix: "%", label: "Home, never cages" },
+  { value: "8+", label: "Years living with dogs" },
+  { value: "2", label: "Our own dogs, living here" },
+  { value: "1", label: "Vet in the family, on call" },
+  { value: "0", label: "Cages in the house" },
 ];
 
 function HomePage() {
@@ -143,38 +132,17 @@ function HomePage() {
               <p className="font-display text-sm font-bold">Bruno &amp; Goofy</p>
               <p className="text-xs text-muted-foreground">The Paw Brothers</p>
             </div>
-            <div className="float-soft absolute -right-2 top-6 hidden rounded-2xl bg-card px-4 py-3 text-left shadow-lift sm:block">
+            <div className="absolute -right-2 top-6 hidden rounded-2xl bg-card px-4 py-3 text-left shadow-lift sm:block">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Boarding from
               </p>
               <p className="font-display text-xl font-extrabold">₹600 / night</p>
             </div>
-            <div className="float-soft absolute -left-3 bottom-24 hidden rounded-2xl bg-primary px-4 py-3 text-primary-foreground shadow-lift lg:block">
-              <p className="font-display text-sm font-bold">Vet in the building</p>
-              <p className="text-xs text-primary-foreground/75">Dr. Sonal Dixit</p>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Photo marquee */}
-      <div className="no-scrollbar overflow-hidden border-y border-border bg-secondary/40 py-5">
-        <div className="marquee-track flex w-max gap-4">
-          {[...marqueePhotos, ...marqueePhotos].map((p, i) => (
-            <img
-              key={`${p.src}-${i}`}
-              src={p.src}
-              alt={i < marqueePhotos.length ? p.alt : ""}
-              width={320}
-              height={220}
-              loading="lazy"
-              className="h-28 w-44 rounded-2xl object-cover shadow-soft sm:h-36 sm:w-56"
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* 3. Trust strip + live counters */}
+      {/* 2. Trust strip */}
       <div className="border-b border-border bg-secondary/50">
         <div className="mx-auto grid max-w-7xl gap-4 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
           {trustStrip.map((t) => (
@@ -191,9 +159,7 @@ function HomePage() {
           <div className="grid gap-6 rounded-[2rem] border border-border bg-card p-8 text-center shadow-soft sm:grid-cols-2 lg:grid-cols-4">
             {heroStats.map((s) => (
               <div key={s.label}>
-                <p className="font-display text-4xl font-extrabold text-primary">
-                  <CountUp to={s.value} suffix={s.suffix} />
-                </p>
+                <p className="font-display text-4xl font-extrabold text-primary">{s.value}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
               </div>
             ))}

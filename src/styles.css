@@ -123,35 +123,6 @@
   animation: reveal-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes marquee-x {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@utility marquee-track {
-  animation: marquee-x 46s linear infinite;
-  &:hover {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes float-soft {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-@utility float-soft {
-  animation: float-soft 6s ease-in-out infinite;
-}
 
 @utility warm-glow {
   background:
@@ -165,5 +136,27 @@
   *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* Pure-CSS scroll reveal (progressive enhancement — no-JS safe) */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal-on-scroll {
+      animation: reveal-up 0.7s ease-out both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
   }
 }
