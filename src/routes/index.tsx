@@ -26,6 +26,8 @@ import {
   Timeline,
 } from "@/components/ui-kit";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { CountUp, Reveal } from "@/components/Reveal";
+import { StickyBookBar } from "@/components/StickyBookBar";
 
 const title = "Paw Brothers — Dog boarding, daycare & training in Pune";
 const description =
@@ -62,31 +64,69 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
+const marqueePhotos = [
+  { src: img.brothersAtPlay, alt: "Bruno and Goofy playing together" },
+  { src: img.goofyGarden, alt: "Goofy in the garden" },
+  { src: img.brunoSofa, alt: "Bruno resting indoors" },
+  { src: img.brothersAtCare, alt: "Bruno and Goofy being cared for" },
+  { src: img.heroBall, alt: "A dog chasing a ball" },
+  { src: img.brothersInRain, alt: "Bruno and Goofy in the rain" },
+  { src: img.goofyTree, alt: "Goofy sitting outdoors" },
+  { src: img.heroPlay, alt: "Dogs playing in the secure garden" },
+];
+
+const heroStats = [
+  { value: 8, suffix: "+", label: "Years living with dogs" },
+  { value: 6, suffix: " days", label: "Open every week" },
+  { value: 24, suffix: "/7", label: "Vet reachable" },
+  { value: 100, suffix: "%", label: "Home, never cages" },
+];
+
 function HomePage() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="relative overflow-hidden">
+      <section className="warm-glow relative overflow-hidden">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:pb-24 lg:pt-16">
           <div className="reveal">
             <Badge tone="accent">{brand.status}</Badge>
             <h1 className="mt-5 text-balance font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
-              Built by dog parents, for dog parents.
+              Because they&apos;re <span className="text-primary">family</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Boarding, daycare, training, grooming, in-house vet care and fresh food in Pune —
               from people whose own two dogs sleep in the same rooms yours will.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink to="/services">
+              <ButtonLink to="/book">
                 Book a stay <ArrowRight className="size-4" />
               </ButtonLink>
-              <ButtonLink to="/bruno" variant="outline">
-                Meet Bruno &amp; Goofy
+              <ButtonLink to="/facility" variant="outline">
+                Visit us first — it&apos;s free
               </ButtonLink>
-              <ButtonLink to="/my-pets" variant="outline">
-                Create your dog&apos;s profile
-              </ButtonLink>
+            </div>
+            <div className="mt-8 flex flex-wrap items-center gap-4 rounded-2xl border border-border bg-card/70 p-4 backdrop-blur-sm sm:gap-6">
+              <div className="flex -space-x-3">
+                {[img.brothersAtHome, img.goofyParent, img.brunoSit, img.family].map((p) => (
+                  <img
+                    key={p}
+                    src={p}
+                    alt=""
+                    width={80}
+                    height={80}
+                    loading="lazy"
+                    className="size-10 rounded-full border-2 border-card object-cover"
+                  />
+                ))}
+              </div>
+              <div>
+                <p className="font-display text-sm font-bold">
+                  <span className="text-accent-foreground">★★★★★</span> Loved by dog parents in Pune
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Baner · Kothrud · Viman Nagar · Koregaon Park
+                </p>
+              </div>
             </div>
           </div>
           <div className="relative">
@@ -103,13 +143,39 @@ function HomePage() {
               <p className="font-display text-sm font-bold">Bruno &amp; Goofy</p>
               <p className="text-xs text-muted-foreground">The Paw Brothers</p>
             </div>
+            <div className="float-soft absolute -right-2 top-6 hidden rounded-2xl bg-card px-4 py-3 text-left shadow-lift sm:block">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Boarding from
+              </p>
+              <p className="font-display text-xl font-extrabold">₹600 / night</p>
+            </div>
+            <div className="float-soft absolute -left-3 bottom-24 hidden rounded-2xl bg-primary px-4 py-3 text-primary-foreground shadow-lift lg:block">
+              <p className="font-display text-sm font-bold">Vet in the building</p>
+              <p className="text-xs text-primary-foreground/75">Dr. Sonal Dixit</p>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* 2. Photo marquee */}
+      <div className="no-scrollbar overflow-hidden border-y border-border bg-secondary/40 py-5">
+        <div className="marquee-track flex w-max gap-4">
+          {[...marqueePhotos, ...marqueePhotos].map((p, i) => (
+            <img
+              key={`${p.src}-${i}`}
+              src={p.src}
+              alt={i < marqueePhotos.length ? p.alt : ""}
+              width={320}
+              height={220}
+              loading="lazy"
+              className="h-28 w-44 rounded-2xl object-cover shadow-soft sm:h-36 sm:w-56"
+            />
+          ))}
+        </div>
+      </div>
 
-      {/* 3. Trust strip */}
-      <div className="border-y border-border bg-secondary/50">
+      {/* 3. Trust strip + live counters */}
+      <div className="border-b border-border bg-secondary/50">
         <div className="mx-auto grid max-w-7xl gap-4 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
           {trustStrip.map((t) => (
             <div key={t.title} className="flex items-center gap-3">
@@ -119,6 +185,51 @@ function HomePage() {
           ))}
         </div>
       </div>
+
+      <Section className="py-10 lg:py-12">
+        <Reveal>
+          <div className="grid gap-6 rounded-[2rem] border border-border bg-card p-8 text-center shadow-soft sm:grid-cols-2 lg:grid-cols-4">
+            {heroStats.map((s) => (
+              <div key={s.label}>
+                <p className="font-display text-4xl font-extrabold text-primary">
+                  <CountUp to={s.value} suffix={s.suffix} />
+                </p>
+                <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </Section>
+
+      {/* 3b. Quick service finder */}
+      <Section className="pt-0">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Start here"
+            title="What does your dog need today?"
+            sub="Pick one and we'll take it from there — no forms, no waiting."
+          />
+        </Reveal>
+        <div className="mt-10 grid gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {services.slice(0, 6).map((s, i) => (
+            <Reveal key={s.slug} delay={i * 60}>
+              <Link
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                to={`/${s.slug}` as any}
+                className="flex h-full flex-col items-center gap-2 rounded-3xl border border-border bg-card px-4 py-6 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lift"
+              >
+                <span className="grid size-12 place-items-center rounded-2xl bg-secondary text-2xl">
+                  {s.emoji}
+                </span>
+                <span className="font-display text-sm font-bold">{s.name}</span>
+                {startingPrices[s.slug] ? (
+                  <span className="text-xs text-muted-foreground">{startingPrices[s.slug]}</span>
+                ) : null}
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
 
       {/* 4. Why Paw Brothers */}
       <Section>
@@ -506,6 +617,8 @@ function HomePage() {
           </div>
         </div>
       </Section>
+
+      <StickyBookBar />
     </>
   );
 }
