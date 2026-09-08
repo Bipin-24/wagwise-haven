@@ -79,10 +79,13 @@ function HomePage() {
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pb-14 pt-10 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:pb-24 lg:pt-16">
           <div className="reveal">
             <Badge tone="accent">{brand.status}</Badge>
-            <h1 className="mt-5 text-balance font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 whitespace-nowrap font-display text-3xl font-extrabold leading-[1.05] sm:text-5xl lg:text-6xl">
               Because they&apos;re <span className="text-primary">family</span>.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-3 font-display text-xl font-bold text-primary sm:text-2xl">
+              Built by dog parents, for dog parents.
+            </p>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Boarding, daycare, training, grooming, in-house vet care and fresh food in Pune —
               from people whose own two dogs sleep in the same rooms yours will.
             </p>
@@ -92,6 +95,9 @@ function HomePage() {
               </ButtonLink>
               <ButtonLink to="/facility" variant="outline">
                 Visit us first — it&apos;s free
+              </ButtonLink>
+              <ButtonLink to="/my-pets" variant="outline">
+                Create your dog&apos;s profile
               </ButtonLink>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-4 rounded-2xl border border-border bg-card/70 p-4 backdrop-blur-sm sm:gap-6">
