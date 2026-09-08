@@ -28,7 +28,7 @@ function AboutPage() {
         eyebrow={`${brand.city} • Open today`}
         title="Paw Brothers started with two dogs."
         sub="We're dog parents ourselves. Bruno and Goofy are part of our family, and caring for them helped us understand how difficult it can be to find trusted care when life takes us away from our dogs."
-        image={img.heroRun}
+        image={img.family}
       />
 
       <Section>

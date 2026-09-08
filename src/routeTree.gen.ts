@@ -23,10 +23,14 @@ import { Route as FacilityRouteImport } from './routes/facility'
 import { Route as FoodRouteImport } from './routes/food'
 import { Route as GoofyRouteImport } from './routes/goofy'
 import { Route as GroomingRouteImport } from './routes/grooming'
+import { Route as MyPetsRouteImport } from './routes/my-pets'
 import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as TrainingRouteImport } from './routes/training'
 import { Route as UpdatesRouteImport } from './routes/updates'
 import { Route as VeterinaryRouteImport } from './routes/veterinary'
+import { Route as MyPetsIndexRouteImport } from './routes/my-pets.index'
+import { Route as MyPetsPetIdRouteImport } from './routes/my-pets.$petId'
+import { Route as MyPetsNewRouteImport } from './routes/my-pets.new'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 
 const IndexRoute = IndexRouteImport.update({
@@ -99,6 +103,11 @@ const GroomingRoute = GroomingRouteImport.update({
   path: '/grooming',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MyPetsRoute = MyPetsRouteImport.update({
+  id: '/my-pets',
+  path: '/my-pets',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
@@ -118,6 +127,21 @@ const VeterinaryRoute = VeterinaryRouteImport.update({
   id: '/veterinary',
   path: '/veterinary',
   getParentRoute: () => rootRouteImport,
+} as any)
+const MyPetsIndexRoute = MyPetsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MyPetsRoute,
+} as any)
+const MyPetsPetIdRoute = MyPetsPetIdRouteImport.update({
+  id: '/$petId',
+  path: '/$petId',
+  getParentRoute: () => MyPetsRoute,
+} as any)
+const MyPetsNewRoute = MyPetsNewRouteImport.update({
+  id: '/new',
+  path: '/new',
+  getParentRoute: () => MyPetsRoute,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/services/',
@@ -140,10 +164,14 @@ export interface FileRoutesByFullPath {
   '/food': typeof FoodRoute
   '/goofy': typeof GoofyRoute
   '/grooming': typeof GroomingRoute
+  '/my-pets': typeof MyPetsRouteWithChildren
   '/profile': typeof ProfileRoute
   '/training': typeof TrainingRoute
   '/updates': typeof UpdatesRoute
   '/veterinary': typeof VeterinaryRoute
+  '/my-pets/$petId': typeof MyPetsPetIdRoute
+  '/my-pets/new': typeof MyPetsNewRoute
+  '/my-pets/': typeof MyPetsIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -165,6 +193,9 @@ export interface FileRoutesByTo {
   '/training': typeof TrainingRoute
   '/updates': typeof UpdatesRoute
   '/veterinary': typeof VeterinaryRoute
+  '/my-pets/$petId': typeof MyPetsPetIdRoute
+  '/my-pets/new': typeof MyPetsNewRoute
+  '/my-pets': typeof MyPetsIndexRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -183,10 +214,14 @@ export interface FileRoutesById {
   '/food': typeof FoodRoute
   '/goofy': typeof GoofyRoute
   '/grooming': typeof GroomingRoute
+  '/my-pets': typeof MyPetsRouteWithChildren
   '/profile': typeof ProfileRoute
   '/training': typeof TrainingRoute
   '/updates': typeof UpdatesRoute
   '/veterinary': typeof VeterinaryRoute
+  '/my-pets/$petId': typeof MyPetsPetIdRoute
+  '/my-pets/new': typeof MyPetsNewRoute
+  '/my-pets/': typeof MyPetsIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -206,10 +241,14 @@ export interface FileRouteTypes {
     | '/food'
     | '/goofy'
     | '/grooming'
+    | '/my-pets'
     | '/profile'
     | '/training'
     | '/updates'
     | '/veterinary'
+    | '/my-pets/$petId'
+    | '/my-pets/new'
+    | '/my-pets/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -231,6 +270,9 @@ export interface FileRouteTypes {
     | '/training'
     | '/updates'
     | '/veterinary'
+    | '/my-pets/$petId'
+    | '/my-pets/new'
+    | '/my-pets'
     | '/services'
   id:
     | '__root__'
@@ -248,10 +290,14 @@ export interface FileRouteTypes {
     | '/food'
     | '/goofy'
     | '/grooming'
+    | '/my-pets'
     | '/profile'
     | '/training'
     | '/updates'
     | '/veterinary'
+    | '/my-pets/$petId'
+    | '/my-pets/new'
+    | '/my-pets/'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -270,6 +316,7 @@ export interface RootRouteChildren {
   FoodRoute: typeof FoodRoute
   GoofyRoute: typeof GoofyRoute
   GroomingRoute: typeof GroomingRoute
+  MyPetsRoute: typeof MyPetsRouteWithChildren
   ProfileRoute: typeof ProfileRoute
   TrainingRoute: typeof TrainingRoute
   UpdatesRoute: typeof UpdatesRoute
@@ -377,6 +424,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GroomingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/my-pets': {
+      id: '/my-pets'
+      path: '/my-pets'
+      fullPath: '/my-pets'
+      preLoaderRoute: typeof MyPetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -405,6 +459,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VeterinaryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/my-pets/': {
+      id: '/my-pets/'
+      path: '/'
+      fullPath: '/my-pets/'
+      preLoaderRoute: typeof MyPetsIndexRouteImport
+      parentRoute: typeof MyPetsRoute
+    }
+    '/my-pets/$petId': {
+      id: '/my-pets/$petId'
+      path: '/$petId'
+      fullPath: '/my-pets/$petId'
+      preLoaderRoute: typeof MyPetsPetIdRouteImport
+      parentRoute: typeof MyPetsRoute
+    }
+    '/my-pets/new': {
+      id: '/my-pets/new'
+      path: '/new'
+      fullPath: '/my-pets/new'
+      preLoaderRoute: typeof MyPetsNewRouteImport
+      parentRoute: typeof MyPetsRoute
+    }
     '/services/': {
       id: '/services/'
       path: '/services'
@@ -414,6 +489,21 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface MyPetsRouteChildren {
+  MyPetsPetIdRoute: typeof MyPetsPetIdRoute
+  MyPetsNewRoute: typeof MyPetsNewRoute
+  MyPetsIndexRoute: typeof MyPetsIndexRoute
+}
+
+const MyPetsRouteChildren: MyPetsRouteChildren = {
+  MyPetsPetIdRoute: MyPetsPetIdRoute,
+  MyPetsNewRoute: MyPetsNewRoute,
+  MyPetsIndexRoute: MyPetsIndexRoute,
+}
+
+const MyPetsRouteWithChildren =
+  MyPetsRoute._addFileChildren(MyPetsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -430,6 +520,7 @@ const rootRouteChildren: RootRouteChildren = {
   FoodRoute: FoodRoute,
   GoofyRoute: GoofyRoute,
   GroomingRoute: GroomingRoute,
+  MyPetsRoute: MyPetsRouteWithChildren,
   ProfileRoute: ProfileRoute,
   TrainingRoute: TrainingRoute,
   UpdatesRoute: UpdatesRoute,

@@ -24,6 +24,7 @@ import {
   vets,
 } from "@/data/mock";
 import type { WaitlistEntry } from "@/types";
+import type { CustomerPet, PetDocument, PetVaccination } from "@/types/customer-pets";
 import { supabase } from "@/lib/supabase";
 
 export const getDogs = () => dogs;
@@ -64,21 +65,21 @@ export type StoredBookingRequest = {
 
 export const createBooking = async (draft: BookingRequest) => {
   if (!supabase) {
-    throw new Error("Booking requests are not configured yet. Please contact Paw Brothers directly.");
+    throw new Error(
+      "Booking requests are not configured yet. Please contact Paw Brothers directly.",
+    );
   }
 
-  const { data, error } = await supabase
-    .from("booking_requests")
-    .insert({
-      customer_name: draft.customerName,
-      customer_email: draft.customerEmail,
-      customer_phone: draft.customerPhone,
-      dog_name: draft.dog,
-      service_slug: draft.service,
-      requested_start_date: draft.start || null,
-      requested_end_date: draft.end || null,
-      care_preferences: draft.notes,
-    })
+  const { data, error } = await supabase.from("booking_requests").insert({
+    customer_name: draft.customerName,
+    customer_email: draft.customerEmail,
+    customer_phone: draft.customerPhone,
+    dog_name: draft.dog,
+    service_slug: draft.service,
+    requested_start_date: draft.start || null,
+    requested_end_date: draft.end || null,
+    care_preferences: draft.notes,
+  });
 
   if (error) throw error;
   return data;
@@ -125,7 +126,8 @@ export const getVets = () => vets;
 export const getReviews = () => sampleReviews;
 
 export const joinWaitlist = async (entry: WaitlistEntry) => {
-  if (!supabase) throw new Error("Visit requests are not configured yet. Please contact Paw Brothers directly.");
+  if (!supabase)
+    throw new Error("Visit requests are not configured yet. Please contact Paw Brothers directly.");
   const { error } = await supabase.from("visit_requests").insert({
     customer_name: entry.name,
     customer_email: entry.email,
@@ -138,4 +140,161 @@ export const joinWaitlist = async (entry: WaitlistEntry) => {
   });
   if (error) throw error;
   return { ok: true };
+};
+
+export type PetDraft = {
+  name: string;
+  breed?: string | undefined;
+  ageYears?: number | undefined;
+  weightKg?: number | undefined;
+  gender: CustomerPet["gender"];
+  notes?: string | undefined;
+};
+
+const PET_DOCUMENTS_BUCKET = "pet-documents";
+
+export const createPet = async (ownerUserId: string, draft: PetDraft) => {
+  if (!supabase)
+    throw new Error("Pet profiles are not configured yet. Please contact Paw Brothers directly.");
+  const { data, error } = await supabase
+    .from("pets")
+    .insert({
+      owner_user_id: ownerUserId,
+      name: draft.name,
+      breed: draft.breed || null,
+      age_years: draft.ageYears ?? null,
+      weight_kg: draft.weightKg ?? null,
+      gender: draft.gender,
+      notes: draft.notes || null,
+    })
+    .select("*")
+    .single();
+  if (error) throw error;
+  return data as CustomerPet;
+};
+
+export const getMyPets = async () => {
+  if (!supabase) throw new Error("Pet profiles are not configured.");
+  const { data, error } = await supabase
+    .from("pets")
+    .select("*")
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return data as CustomerPet[];
+};
+
+export const getPet = async (petId: string) => {
+  if (!supabase) throw new Error("Pet profiles are not configured.");
+  const { data, error } = await supabase.from("pets").select("*").eq("id", petId).maybeSingle();
+  if (error) throw error;
+  return data as CustomerPet | null;
+};
+
+export const updatePetPhoto = async (petId: string, storagePath: string) => {
+  if (!supabase) throw new Error("Pet profiles are not configured.");
+  const { error } = await supabase.from("pets").update({ photo_path: storagePath }).eq("id", petId);
+  if (error) throw error;
+};
+
+export const uploadPetPhoto = async (ownerUserId: string, petId: string, file: File) => {
+  if (!supabase) throw new Error("Pet profiles are not configured.");
+  const path = `${ownerUserId}/${petId}/photo-${crypto.randomUUID()}-${file.name}`;
+  const { error: uploadError } = await supabase.storage
+    .from(PET_DOCUMENTS_BUCKET)
+    .upload(path, file);
+  if (uploadError) throw uploadError;
+  await updatePetPhoto(petId, path);
+  return path;
+};
+
+export const addVaccination = async (
+  petId: string,
+  vaccine: { vaccineName: string; givenOn: string; nextDueOn?: string },
+) => {
+  if (!supabase) throw new Error("Pet profiles are not configured.");
+  const { data, error } = await supabase
+    .from("pet_vaccinations")
+    .insert({
+      pet_id: petId,
+      vaccine_name: vaccine.vaccineName,
+      given_on: vaccine.givenOn,
+      next_due_on: vaccine.nextDueOn || null,
+    })
+    .select("*")
+    .single();
+  if (error) throw error;
+  return data as PetVaccination;
+};
+
+export const getPetVaccinations = async (petId: string) => {
+  if (!supabase) throw new Error("Pet profiles are not configured.");
+  const { data, error } = await supabase
+    .from("pet_vaccinations")
+    .select("*")
+    .eq("pet_id", petId)
+    .order("given_on", { ascending: false });
+  if (error) throw error;
+  return data as PetVaccination[];
+};
+
+export const uploadPetDocument = async (
+  ownerUserId: string,
+  petId: string,
+  file: File,
+  documentType: string,
+) => {
+  if (!supabase) throw new Error("Pet profiles are not configured.");
+  const path = `${ownerUserId}/${petId}/${crypto.randomUUID()}-${file.name}`;
+  const { error: uploadError } = await supabase.storage
+    .from(PET_DOCUMENTS_BUCKET)
+    .upload(path, file);
+  if (uploadError) throw uploadError;
+
+  const { data, error } = await supabase
+    .from("pet_documents")
+    .insert({
+      pet_id: petId,
+      file_name: file.name,
+      storage_path: path,
+      mime_type: file.type || null,
+      size_bytes: file.size,
+      document_type: documentType || null,
+    })
+    .select("*")
+    .single();
+
+  if (error) {
+    try {
+      await supabase.storage.from(PET_DOCUMENTS_BUCKET).remove([path]);
+    } catch {
+      // best-effort cleanup; the original insert error is what matters
+    }
+    throw error;
+  }
+
+  return data as PetDocument;
+};
+
+export const getPetDocuments = async (petId: string) => {
+  if (!supabase) throw new Error("Pet profiles are not configured.");
+  const { data, error } = await supabase
+    .from("pet_documents")
+    .select("*")
+    .eq("pet_id", petId)
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return data as PetDocument[];
+};
+
+export const getPetDocumentSignedUrl = async (storagePath: string) => {
+  if (!supabase) throw new Error("Pet profiles are not configured.");
+  const { data, error } = await supabase.storage
+    .from(PET_DOCUMENTS_BUCKET)
+    .createSignedUrl(storagePath, 300);
+  if (error) throw error;
+  return data.signedUrl;
+};
+
+export const getPetPhotoSignedUrl = async (storagePath: string) => {
+  return getPetDocumentSignedUrl(storagePath);
 };
