@@ -132,15 +132,11 @@ function HomePage() {
               <p className="font-display text-sm font-bold">Bruno &amp; Goofy</p>
               <p className="text-xs text-muted-foreground">The Paw Brothers</p>
             </div>
-            <div className="float-soft absolute -right-2 top-6 hidden rounded-2xl bg-card px-4 py-3 text-left shadow-lift sm:block">
+            <div className="absolute -right-2 top-6 hidden rounded-2xl bg-card px-4 py-3 text-left shadow-lift sm:block">
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Boarding from
               </p>
               <p className="font-display text-xl font-extrabold">₹600 / night</p>
-            </div>
-            <div className="float-soft absolute -left-3 bottom-24 hidden rounded-2xl bg-primary px-4 py-3 text-primary-foreground shadow-lift lg:block">
-              <p className="font-display text-sm font-bold">Vet in the building</p>
-              <p className="text-xs text-primary-foreground/75">Dr. Sonal Dixit</p>
             </div>
           </div>
         </div>
@@ -163,9 +159,7 @@ function HomePage() {
           <div className="grid gap-6 rounded-[2rem] border border-border bg-card p-8 text-center shadow-soft sm:grid-cols-2 lg:grid-cols-4">
             {heroStats.map((s) => (
               <div key={s.label}>
-                <p className="font-display text-4xl font-extrabold text-primary">
-                  <CountUp to={s.value} suffix={s.suffix} />
-                </p>
+                <p className="font-display text-4xl font-extrabold text-primary">{s.value}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{s.label}</p>
               </div>
             ))}
