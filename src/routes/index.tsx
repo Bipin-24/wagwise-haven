@@ -5,12 +5,16 @@ import {
   brand,
   dayTimeline,
   dogs,
+  faqs,
   journeyCards,
+  safetyPoints,
   sampleReviews,
   services,
+  startingPrices,
   trustStrip,
   whyCards,
 } from "@/data/mock";
+
 import {
   Badge,
   ButtonLink,
