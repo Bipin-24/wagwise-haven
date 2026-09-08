@@ -53,6 +53,8 @@ export const Route = createFileRoute("/")({
           description,
           areaServed: "Pune, Maharashtra, India",
           slogan: "Built by dog parents, for dog parents.",
+          email: "pawbrothers24@gmail.com",
+          telephone: "+919535702274",
         }),
       },
     ],

@@ -33,8 +33,8 @@ export const brand = {
 export const owner: Owner = {
   id: "own_1",
   name: "Bipin",
-  email: "",
-  phone: "",
+  email: "pawbrothers24@gmail.com",
+  phone: "9535702274",
   area: "Pune",
   dogIds: ["dog_bruno", "dog_goofy"],
 };
