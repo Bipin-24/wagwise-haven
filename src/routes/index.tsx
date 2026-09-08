@@ -146,24 +146,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 2. Photo marquee */}
-      <div className="no-scrollbar overflow-hidden border-y border-border bg-secondary/40 py-5">
-        <div className="marquee-track flex w-max gap-4">
-          {[...marqueePhotos, ...marqueePhotos].map((p, i) => (
-            <img
-              key={`${p.src}-${i}`}
-              src={p.src}
-              alt={i < marqueePhotos.length ? p.alt : ""}
-              width={320}
-              height={220}
-              loading="lazy"
-              className="h-28 w-44 rounded-2xl object-cover shadow-soft sm:h-36 sm:w-56"
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* 3. Trust strip + live counters */}
+      {/* 2. Trust strip */}
       <div className="border-b border-border bg-secondary/50">
         <div className="mx-auto grid max-w-7xl gap-4 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
           {trustStrip.map((t) => (
