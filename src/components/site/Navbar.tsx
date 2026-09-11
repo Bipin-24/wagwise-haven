@@ -18,7 +18,8 @@ const links = [
 
 const searchLinks = [
   ...links,
-  { to: "/book", label: "Book a stay" },
+  { to: "/my-pets", label: "Paw Profile" },
+  { to: "/contact", label: "Book a Free Visit" },
   { to: "/contact", label: "Contact Paw Brothers" },
   { to: "/dashboard", label: "Owner dashboard" },
 ] as const;
@@ -73,16 +74,22 @@ export function Navbar() {
             <Search className="size-5" />
           </button>
           <Link
+            to="/my-pets"
+            className="hidden whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary 2xl:inline-flex"
+          >
+            Paw Profile
+          </Link>
+          <Link
             to="/bruno"
             className="hidden whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-semibold text-foreground/80 transition-colors hover:bg-secondary 2xl:inline-flex"
           >
             Meet Bruno &amp; Goofy
           </Link>
           <Link
-            to="/book"
+            to="/contact"
             className="hidden whitespace-nowrap rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.03] sm:inline-flex"
           >
-            Book a Stay
+            Book a Free Visit
           </Link>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
@@ -111,6 +118,13 @@ export function Navbar() {
               </Link>
             ))}
             <Link
+              to="/my-pets"
+              onClick={() => setOpen(false)}
+              className="rounded-xl px-4 py-3 text-base font-medium transition-colors hover:bg-secondary"
+            >
+              Paw Profile
+            </Link>
+            <Link
               to="/bruno"
               onClick={() => setOpen(false)}
               className="rounded-xl px-4 py-3 text-base font-medium transition-colors hover:bg-secondary"
@@ -118,11 +132,11 @@ export function Navbar() {
               Meet Bruno &amp; Goofy
             </Link>
             <Link
-              to="/book"
+              to="/contact"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-xl bg-primary px-4 py-3.5 text-center text-base font-semibold text-primary-foreground"
             >
-              Book a Stay
+              Book a Free Visit
             </Link>
           </nav>
         </div>

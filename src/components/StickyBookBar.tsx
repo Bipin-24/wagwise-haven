@@ -23,7 +23,7 @@ export function StickyBookBar() {
         <p className="text-sm">
           <span className="font-display font-bold">Planning a trip?</span>{" "}
           <span className="text-muted-foreground">
-            Boarding from ₹600/night · free visit before you book
+            Boarding from ₹700/day · free visit before you decide
           </span>
         </p>
         <a
@@ -33,10 +33,10 @@ export function StickyBookBar() {
           <Phone className="size-4" /> Call us
         </a>
         <Link
-          to="/book"
+          to="/contact"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-transform hover:-translate-y-0.5"
         >
-          Book a stay <ArrowRight className="size-4" />
+          Book a Free Visit <ArrowRight className="size-4" />
         </Link>
       </div>
     </div>

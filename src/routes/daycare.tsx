@@ -4,7 +4,7 @@ import { Card, Section, SectionHeading } from "@/components/ui-kit";
 
 const title = "Dog Daycare in Pune — Paw Brothers";
 const description =
-  "A safe place to play, socialize and relax while you’re at work. Supervised dog daycare in Pune, open six days a week.";
+  "A safe place to play, socialize and relax while you’re at work. Supervised dog daycare opening soon in Pune.";
 
 export const Route = createFileRoute("/daycare")({
   head: () => ({

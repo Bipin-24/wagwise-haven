@@ -5,7 +5,7 @@ import { Badge, ButtonLink, Card, PageHero, Section, SectionHeading } from "@/co
 
 const title = "Veterinary Support — Paw Brothers Pune";
 const description =
-  "In-house veterinary care at Paw Brothers Pune. Every dog's health, food and medication is reviewed by our resident veterinarian, Dr. Sonal Dixit.";
+  "In-house veterinary care, opening soon at Paw Brothers Pune. Every dog's health, food and medication will be reviewed by our resident veterinarian, Dr. Sonal Dixit.";
 
 export const Route = createFileRoute("/veterinary")({
   head: () => ({
@@ -35,10 +35,10 @@ function VeterinaryPage() {
       <PageHero
         eyebrow="🩺 Veterinary"
         title="Veterinary expertise with trust at the center."
-        sub="Every dog who stays with us has their health, food and medication reviewed by our resident veterinarian — before the first meal is served."
+        sub="Every dog who stays with us will have their health, food and medication reviewed by our resident veterinarian — before the first meal is served."
         image={img.vet}
       >
-        <Badge tone="sage">Open today</Badge>
+        <Badge tone="sage">Opening soon</Badge>
       </PageHero>
 
       <Section>

@@ -115,8 +115,10 @@ export function StatusBadge({ status }: { status: BookingStatus }) {
 }
 
 export function ServiceStatusBadge({ status }: { status: ServiceStatus }) {
-  if (status === "planned") return <Badge tone="cream">New</Badge>;
-  return <Badge tone="sage">Open today</Badge>;
+  if (status === "coming-soon" || status === "planned") {
+    return <Badge tone="cream">Coming soon</Badge>;
+  }
+  return <Badge tone="sage">Available</Badge>;
 }
 
 export function ButtonLink({

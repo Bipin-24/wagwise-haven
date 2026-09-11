@@ -16,7 +16,6 @@ import {
   owner,
   pricingPlans,
   rooms,
-  sampleReviews,
   services,
   trainingPrograms,
   trainingSessions,
@@ -123,7 +122,6 @@ export const getDogActivities = (dogId: string) => dogActivities.filter((a) => a
 export const getTrainingPrograms = () => trainingPrograms;
 export const getFoodProducts = () => foodProducts;
 export const getVets = () => vets;
-export const getReviews = () => sampleReviews;
 
 export const joinWaitlist = async (entry: WaitlistEntry) => {
   if (!supabase)

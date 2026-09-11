@@ -12,7 +12,6 @@ import type {
   NutritionPlan,
   Owner,
   PricingPlan,
-  Review,
   Room,
   Service,
   Staff,
@@ -27,8 +26,14 @@ export const brand = {
   tagline: "Built by dog parents, for dog parents.",
   message: "Because every dog deserves family-level care.",
   city: "Pune, Maharashtra",
-  status: "Pune • Now taking bookings",
+  status: "Pune • Opening soon",
 };
+
+// TODO(owner): Decide your actual founding-member offer (e.g. "10% off your first boarding stay"
+// or "a free daycare session") and set it below before launch. Until you do, leave this as `null` —
+// the homepage will show generic "be one of our first families" copy with no specific discount
+// claim, rather than a fabricated number.
+export const foundingMemberOffer: string | null = null;
 
 export const owner: Owner = {
   id: "own_1",
@@ -185,7 +190,7 @@ export const services: Service[] = [
     tagline: "Gentle, thoughtful grooming for happy dogs.",
     description:
       "Low-stress grooming at a pace your dog is comfortable with — bath, brush, coat, nails and ears.",
-    status: "available",
+    status: "coming-soon",
     heroImage: img.goofyTree,
     cardImage: img.brothersAtHome,
     features: ["Bath", "Brush", "Coat care", "Nail care", "Ear cleaning", "Calm handling"],
@@ -451,32 +456,6 @@ export const staff: Staff[] = [
   { id: "st_2", name: "Dr. Sonal Dixit", role: "Veterinary Advisor" },
 ];
 
-export const sampleReviews: Review[] = [
-  {
-    id: "rv_1",
-    quote:
-      "I cried a little at the airport. Then the first photo of Rocky mid-zoomie landed on my phone and I actually enjoyed my holiday.",
-    author: "Aarti M.",
-    context: "Rocky \u00b7 Labrador \u00b7 Baner",
-    sample: true,
-  },
-  {
-    id: "rv_2",
-    quote:
-      "Simba is nervous with strangers. Bipin sat on the floor with him for twenty minutes before even taking the leash. That told me everything.",
-    author: "Rohan D.",
-    context: "Simba \u00b7 Indie \u00b7 Kothrud",
-    sample: true,
-  },
-  {
-    id: "rv_3",
-    quote:
-      "Their vet spotted an ear infection we had completely missed and had it treated before we were back. Who does that?",
-    author: "Neha & Karan",
-    context: "Pixie \u00b7 Beagle \u00b7 Viman Nagar",
-    sample: true,
-  },
-];
 
 export const trustStrip = [
   { emoji: "❤️", title: "Family-Level Care" },
@@ -560,8 +539,8 @@ export const faqs = [
     a: "8 am to 8 pm, every day. Odd hours because of a flight? Tell us in advance and we'll work around it.",
   },
   {
-    q: "What happens if my dog falls ill?",
-    a: "Dr. Sonal sees them immediately and we call you straight away. For anything beyond in-house care we go to our partner clinic and keep you on the phone the whole time.",
+    q: "What happens if my dog gets sick or hurt?",
+    a: "Dr. Sonal sees them immediately and we call you straight away. For anything beyond in-house care we go to our partner clinic and keep you on the phone the whole time — you're never finding out after the fact.",
   },
   {
     q: "Will my dog be around your dogs?",
@@ -569,6 +548,14 @@ export const faqs = [
   },
   {
     q: "Can I visit before booking?",
-    a: "Please do. Bring your dog, take twenty minutes, meet everyone. Almost every parent visits first and we'd rather you did too.",
+    a: "Please do. Bring your dog, take twenty minutes, meet everyone. We'd rather show you the space than ask you to trust us on words alone.",
+  },
+  // TODO(owner): Replace this answer with your actual decided cancellation/refund policy before
+  // launch — e.g. how many hours/days of notice is required, what % (if any) is refunded, and how
+  // rescheduling works. Until it's decided, keep this honest placeholder rather than publishing
+  // invented terms that could create a real dispute with a customer later.
+  {
+    q: "What are your cancellation rules?",
+    a: "We're finalizing our cancellation and refund policy ahead of launch. Ask us directly when you visit or book, and we'll confirm everything with you in writing before you commit to a stay.",
   },
 ];

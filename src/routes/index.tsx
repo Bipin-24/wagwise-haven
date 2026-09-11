@@ -6,9 +6,9 @@ import {
   dayTimeline,
   dogs,
   faqs,
+  foundingMemberOffer,
   journeyCards,
   safetyPoints,
-  sampleReviews,
   services,
   startingPrices,
   trustStrip,
@@ -90,11 +90,11 @@ function HomePage() {
               from people whose own two dogs sleep in the same rooms yours will.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink to="/book">
-                Book a stay <ArrowRight className="size-4" />
+              <ButtonLink to="/contact">
+                Book a Free Visit <ArrowRight className="size-4" />
               </ButtonLink>
-              <ButtonLink to="/facility" variant="outline">
-                Visit us first — it&apos;s free
+              <ButtonLink to="/services" variant="outline">
+                Explore Paw Brothers
               </ButtonLink>
               <ButtonLink to="/my-pets" variant="outline">
                 Create your dog&apos;s profile
@@ -115,11 +115,9 @@ function HomePage() {
                 ))}
               </div>
               <div>
-                <p className="font-display text-sm font-bold">
-                  <span className="text-accent-foreground">★★★★★</span> Loved by dog parents in Pune
-                </p>
+                <p className="font-display text-sm font-bold">Built by dog parents in Pune</p>
                 <p className="text-xs text-muted-foreground">
-                  Baner · Kothrud · Viman Nagar · Koregaon Park
+                  Opening soon — come see it before you decide anything.
                 </p>
               </div>
             </div>
@@ -188,7 +186,9 @@ function HomePage() {
                   {s.emoji}
                 </span>
                 <span className="font-display text-sm font-bold">{s.name}</span>
-                {startingPrices[s.slug] ? (
+                {s.status !== "available" ? (
+                  <ServiceStatusBadge status={s.status} />
+                ) : startingPrices[s.slug] ? (
                   <span className="text-xs text-muted-foreground">{startingPrices[s.slug]}</span>
                 ) : null}
               </Link>
@@ -334,21 +334,22 @@ function HomePage() {
           <div className="grid items-center gap-10 p-8 lg:grid-cols-2 lg:p-14">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/60">
-                Digital care
+                Your dog's health passport
               </p>
               <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">
                 Every dog gets a Paw Profile.
               </h2>
               <p className="mt-4 max-w-lg leading-relaxed text-primary-foreground/75">
-                Health records, feeding instructions, training progress, grooming and booking
-                history — all in one simple place, shared between you and us.
+                Vaccination records, health history, feeding instructions, training progress and
+                every stay — kept in one place, so any vet or caregiver has the full picture
+                instantly, not a story you have to retell from memory.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <ButtonLink to="/dogs" variant="light">
-                  See a Paw Profile
+                <ButtonLink to="/my-pets" variant="light">
+                  Create your Paw Profile
                 </ButtonLink>
-                <ButtonLink to="/updates" variant="light" className="bg-transparent text-primary-foreground ring-1 ring-primary-foreground/30 hover:bg-primary-foreground/10">
-                  Paw Updates
+                <ButtonLink to="/dogs" variant="light" className="bg-transparent text-primary-foreground ring-1 ring-primary-foreground/30 hover:bg-primary-foreground/10">
+                  See a demo
                 </ButtonLink>
               </div>
             </div>
@@ -427,7 +428,7 @@ function HomePage() {
       <Section className="pt-0">
         <Card className="grid items-center gap-8 overflow-hidden p-8 lg:grid-cols-[1.2fr_1fr] lg:p-12">
           <div>
-            <Badge tone="sage">In-house · every single day</Badge>
+            <Badge tone="sage">In-house, from day one</Badge>
             <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl">
               A vet in the family, and in the building.
             </h2>
@@ -464,20 +465,40 @@ function HomePage() {
             className="aspect-[5/4] w-full rounded-[2rem] object-cover shadow-soft"
           />
           <div>
-            <Badge tone="cream">Pune · Open six days a week</Badge>
+            <Badge tone="cream">Opening soon in Pune</Badge>
             <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl">
               A home with a garden, not a row of cages.
             </h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
               This is where Bruno and Goofy grew up. Boarding rooms with real beds, a secure garden,
-              a quiet grooming corner and a vet down the hall. Come see it before you book — almost
-              every parent does, and we'd rather you did.
+              a quiet grooming corner and a vet down the hall. Come see it before you decide anything
+              — we'd rather show you than ask you to trust us.
             </p>
             <ButtonLink to="/facility" className="mt-6">
               Take a look around
             </ButtonLink>
           </div>
         </div>
+      </Section>
+
+      {/* 10b. Founding families */}
+      <Section className="pt-0">
+        <Card className="border-primary/20 bg-secondary/60 p-8 text-center lg:p-12">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent-foreground/70">
+            Founding families
+          </p>
+          <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl">
+            Be one of the first dogs at Paw Brothers.
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl leading-relaxed text-muted-foreground">
+            {foundingMemberOffer
+              ? `As a founding family, you'll get ${foundingMemberOffer}.`
+              : "We're welcoming a small number of founding families before we open to everyone else. Join the list and we'll reach out personally."}
+          </p>
+          <ButtonLink to="/contact" className="mt-6">
+            Join the founding list
+          </ButtonLink>
+        </Card>
       </Section>
 
       {/* 11. Waitlist */}
@@ -492,25 +513,6 @@ function HomePage() {
             <WaitlistForm />
           </div>
         </Card>
-      </Section>
-
-      {/* 12. Testimonials */}
-      <Section className="pt-0">
-        <SectionHeading
-          eyebrow="Dog parents"
-          title="Loved by dogs. Trusted by their humans."
-          sub="Families across Baner, Kothrud, Viman Nagar and Koregaon Park leave their dogs with us."
-        />
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {sampleReviews.map((r) => (
-            <Card key={r.id} className="p-7">
-              <p className="text-accent-foreground">★★★★★</p>
-              <p className="mt-4 font-display text-lg leading-relaxed">“{r.quote}”</p>
-              <p className="mt-5 font-display text-sm font-bold">{r.author}</p>
-              <p className="text-sm text-muted-foreground">{r.context}</p>
-            </Card>
-          ))}
-        </div>
       </Section>
 
       {/* 12b. FAQs */}
@@ -571,15 +573,16 @@ function HomePage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <ButtonLink to="/contact" variant="light">
-              Join Paw Brothers
+              Book a Free Visit
             </ButtonLink>
-            <ButtonLink
-              to="/goofy"
-              variant="light"
-              className="bg-transparent text-primary-foreground ring-1 ring-primary-foreground/30 hover:bg-primary-foreground/10"
+            <a
+              href="https://wa.me/919535702274?text=Hi%20Paw%20Brothers%2C%20I%20would%20like%20to%20know%20more%20about%20your%20dog-care%20services."
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-transparent px-6 py-3 text-sm font-semibold text-primary-foreground ring-1 ring-primary-foreground/30 transition-all duration-200 hover:bg-primary-foreground/10"
             >
-              Meet Bruno &amp; Goofy
-            </ButtonLink>
+              Talk to Us
+            </a>
           </div>
         </div>
       </Section>

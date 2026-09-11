@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { brand, dogs, founders, sampleReviews } from "@/data/mock";
+import { brand, dogs, founders } from "@/data/mock";
 import { img } from "@/data/images";
 import { Badge, ButtonLink, Card, PageHero, Section, SectionHeading } from "@/components/ui-kit";
 
@@ -25,7 +25,7 @@ function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow={`${brand.city} • Open today`}
+        eyebrow={`${brand.city} • Opening soon`}
         title="Paw Brothers started with two dogs."
         sub="We're dog parents ourselves. Bruno and Goofy are part of our family, and caring for them helped us understand how difficult it can be to find trusted care when life takes us away from our dogs."
         image={img.family}
@@ -73,17 +73,12 @@ function AboutPage() {
       </Section>
 
       <Section className="pt-0">
-        <SectionHeading eyebrow="Dog parents" title="What families in Pune tell us" />
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {sampleReviews.map((r) => (
-            <Card key={r.id} className="p-7">
-              <p className="text-sm leading-relaxed">“{r.quote}”</p>
-              <p className="mt-4 font-display text-sm font-bold">{r.author}</p>
-              <p className="text-xs text-muted-foreground">{r.context}</p>
-            </Card>
-          ))}
-        </div>
-        <div className="mt-12 text-center">
+        <SectionHeading
+          eyebrow="Pre-launch"
+          title="We'd rather show you than tell you."
+          sub="Paw Brothers is opening soon in Pune. Come see the space, meet Bruno and Goofy, and decide for yourself before you commit to anything."
+        />
+        <div className="mt-10 text-center">
           <ButtonLink to="/facility">Come visit us in Pune</ButtonLink>
         </div>
       </Section>

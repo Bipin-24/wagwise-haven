@@ -26,9 +26,9 @@ function FacilityPage() {
   return (
     <>
       <PageHero
-        eyebrow="Pune • Open today"
+        eyebrow="Pune • Opening soon"
         title="A place dogs love coming home to."
-        sub="This is where Bruno and Goofy grew up — a real home with a garden, not a row of cages. Come see it before you book; most parents do."
+        sub="This is where Bruno and Goofy grew up — a real home with a garden, not a row of cages. Come see it for yourself before you decide anything."
         image={img.heroRun}
       />
       <Section>

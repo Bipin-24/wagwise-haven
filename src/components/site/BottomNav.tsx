@@ -3,7 +3,7 @@ import { Home, Dog, CalendarDays, Heart, User, Plus } from "lucide-react";
 
 const items = [
   { to: "/", label: "Home", icon: Home, exact: true },
-  { to: "/dogs", label: "My Dogs", icon: Dog },
+  { to: "/my-pets", label: "My Dogs", icon: Dog },
   { to: "/bookings", label: "Bookings", icon: CalendarDays },
   { to: "/updates", label: "Updates", icon: Heart },
   { to: "/profile", label: "Profile", icon: User },
@@ -13,8 +13,8 @@ export function BottomNav() {
   return (
     <>
       <Link
-        to="/book"
-        aria-label="Book a service"
+        to="/contact"
+        aria-label="Book a free visit"
         className="fixed bottom-[74px] right-4 z-50 grid size-14 place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition-transform active:scale-95 lg:hidden"
       >
         <Plus className="size-6" />

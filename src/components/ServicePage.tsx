@@ -17,6 +17,7 @@ export function ServicePage({
   const service = getService(slug);
   const plans = getPricing(slug);
   if (!service) return null;
+  const isComingSoon = service.status !== "available";
 
   return (
     <>
@@ -26,7 +27,11 @@ export function ServicePage({
         sub={heroCopy}
         image={service.heroImage}
       >
-        <ButtonLink to="/book">Start a booking</ButtonLink>
+        {isComingSoon ? (
+          <ButtonLink to="/contact">Get notified when it opens</ButtonLink>
+        ) : (
+          <ButtonLink to="/contact">Book a Free Visit</ButtonLink>
+        )}
         <ButtonLink to="/facility" variant="outline">
           Visit our Pune home
         </ButtonLink>
@@ -59,7 +64,11 @@ export function ServicePage({
           <SectionHeading
             eyebrow="Pricing"
             title="Honest pricing, written down"
-            sub="Everything included. No hidden add-ons, no surprises at pick-up."
+            sub={
+              isComingSoon
+                ? "Planned pricing for when this opens. Everything included, no hidden add-ons."
+                : "Everything included. No hidden add-ons, no surprises at pick-up."
+            }
           />
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {plans.map((p) => (
@@ -82,9 +91,15 @@ export function ServicePage({
                     <li key={i}>✓ {i}</li>
                   ))}
                 </ul>
-                <ButtonLink to="/book" className="mt-6 w-full">
-                  Request this plan
-                </ButtonLink>
+                {isComingSoon ? (
+                  <ButtonLink to="/contact" className="mt-6 w-full">
+                    Get notified
+                  </ButtonLink>
+                ) : (
+                  <ButtonLink to="/book" className="mt-6 w-full">
+                    Request this plan
+                  </ButtonLink>
+                )}
               </Card>
             ))}
           </div>

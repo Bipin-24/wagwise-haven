@@ -18,6 +18,7 @@ const companyLinks = [
   { to: "/bruno", label: "Bruno" },
   { to: "/goofy", label: "Goofy" },
   { to: "/facility", label: "Facility" },
+  { to: "/my-pets", label: "Paw Profile" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
